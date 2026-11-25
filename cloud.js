@@ -94,9 +94,45 @@
   let mine = [];
   try { mine = JSON.parse(localStorage.getItem('ca_words') || '[]'); } catch {}
 
+  /* ---- live poll (Supabase). The publishable key is meant to be public; row-level security
+         only lets visitors read the counts view and insert one short, clean word. ---- */
+  const LIVE = { url: 'https://ivacgleyzoxbsdhopbqn.supabase.co', key: 'sb_publishable_RKbMUl2e5MmZvEdBPreN4g_FGLA3k3O' };
+  const liveOn = !!LIVE.url;
+  let live = null, liveTotal = 0;
+  const esc = t => t.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const H = () => ({ apikey: LIVE.key, Authorization: `Bearer ${LIVE.key}`, 'Content-Type': 'application/json' });
+  async function fetchLive() {
+    if (!liveOn) return false;
+    try {
+      const r = await fetch(`${LIVE.url}/rest/v1/word_counts?select=word,n&limit=30`, { headers: H() });
+      if (!r.ok) throw new Error(r.status);
+      live = await r.json();
+      liveTotal = live.reduce((a, w) => a + w.n, 0);
+      return true;
+    } catch { return false; }
+  }
+  async function sendLive(word) {
+    if (!liveOn) return false;
+    try {
+      const r = await fetch(`${LIVE.url}/rest/v1/words`, { method: 'POST', headers: { ...H(), Prefer: 'return=minimal' }, body: JSON.stringify({ word }) });
+      return r.ok;
+    } catch { return false; }
+  }
+
   function wordsFor(key) {
     if (key !== 'you') return DATA[key];
     const list = DATA.you.map(w => [...w]);
+    const isMine = w => mine.some(m => m.toLowerCase() === w.toLowerCase());
+    if (live) {
+      live.forEach(({ word, n }) => {
+        const wt = Math.min(6, 2 + Math.round(Math.log2(n + 1)));
+        const hit = list.find(w => w[0].toLowerCase() === word);
+        const note = `${n} visitor${n > 1 ? 's' : ''} said this.`;
+        if (hit) { hit[1] = Math.min(6, Math.max(hit[1], wt) + 1); hit[2] = `${hit[2]} ${note}`; hit[3] = isMine(word); }
+        else list.push([word, wt, note, isMine(word)]);
+      });
+      return list;
+    }
     mine.forEach(m => {
       const hit = list.find(w => w[0].toLowerCase() === m.toLowerCase());
       if (hit) hit[1] = Math.min(6, hit[1] + 1);
@@ -143,7 +179,7 @@
       });
       if (ok) break;
     }
-    if (key === 'you') $('#pollCount').textContent = el.children.length;
+    if (key === 'you') $('#pollCount').textContent = live ? liveTotal : el.children.length;
   }
 
   const clouds = [...document.querySelectorAll('.cloud')];
@@ -157,7 +193,7 @@
       const w = e.target.closest('.w'); if (!w) return;
       el.querySelectorAll('.w.on').forEach(x => x.classList.remove('on'));
       w.classList.add('on');
-      note.innerHTML = `<b>${w.textContent}</b> · ${w.dataset.note}`;
+      note.innerHTML = `<b>${esc(w.textContent)}</b> · ${esc(w.dataset.note)}`;
     };
     el.addEventListener('pointerover', show);
     el.addEventListener('click', show);
@@ -165,7 +201,7 @@
   });
 
   // the poll
-  $('#pollForm').addEventListener('submit', e => {
+  $('#pollForm').addEventListener('submit', async e => {
     e.preventDefault();
     const inp = $('#pollInput');
     const word = (inp.value.trim().split(/\s+/)[0] || '').replace(/[^\p{L}\p{N}'\-]/gu, '').slice(0, 18);
@@ -175,10 +211,31 @@
     mine.push(word);
     localStorage.setItem('ca_words', JSON.stringify(mine.slice(-12)));
     inp.value = '';
+    const btn = $('#pollForm button'); btn.disabled = true;
+    const sent = await sendLive(word.toLowerCase());
+    if (sent) await fetchLive(); else live = null;
+    btn.disabled = false;
     layout($('#cloudYou'), word);
-    note.innerHTML = `<b>${word}</b> · added. Thanks for weighing in!`;
-    window.CA?.toast?.('💬', `"${word}" added to the cloud`, 'Thanks for weighing in');
+    note.innerHTML = sent
+      ? `<b>${esc(word)}</b> · added to the live cloud. Everyone visiting can see it now.`
+      : `<b>${esc(word)}</b> · added on this device (live poll is offline right now).`;
+    window.CA?.toast?.('💬', `"${esc(word)}" added to the cloud`, sent ? 'Live for every visitor' : 'Saved on this device');
   });
+
+  // live: load shared words, then refresh while the poll is on screen
+  if (liveOn) {
+    let onScreen = false;
+    new IntersectionObserver(([en]) => { onScreen = en.isIntersecting; }).observe($('#cloudYou'));
+    const refresh = async () => {
+      const before = JSON.stringify(live);
+      if (await fetchLive()) {
+        $('#noteYou').textContent = `Live poll · ${liveTotal} response${liveTotal === 1 ? '' : 's'} from visitors so far. Add yours.`;
+        if (JSON.stringify(live) !== before) layout($('#cloudYou'));
+      }
+    };
+    refresh();
+    setInterval(() => { if (onScreen && !document.hidden) refresh(); }, 15000);
+  }
 
   // keep layouts right across resizes, font loads and Suit/Code switches
   let rt; const relayout = () => { clearTimeout(rt); rt = setTimeout(() => all(), 120); };
