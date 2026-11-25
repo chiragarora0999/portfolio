@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en" data-mode="biz">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chirag Arora — Strategy × AI × Product</title>
+<meta name="description" content="Chirag Arora — Sydney-based Master of Commerce student at UNSW who blends business, strategy and AI. 4.5 years in analytics & consulting, and a shipped AI product of his own." />
+<meta property="og:title" content="Chirag Arora — I speak boardroom and I speak code." />
+<meta property="og:description" content="Engineer-turned-business builder. 4.5 years in analytics & consulting, a live AI Chrome extension, and a lot of secrets hidden on this site." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#f4efe6" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2316130f'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23ff6a2b'>CA</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a href="#top" class="logo" id="logo" aria-label="Back to top"><span data-dev="&amp;lt;CA/&amp;gt;">CA</span></a>
+  <nav class="nav-links">
+    <a href="#road" data-dev="./road">Journey</a>
+    <a href="#work" data-dev="./work">Work</a>
+    <a href="#projects" data-dev="./ship">Projects</a>
+    <a href="#proof" data-dev="./proof">Proof</a>
+    <a href="#contact" data-dev="./ping">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <button class="secrets-badge" id="secretsBadge" aria-label="Secrets found">
+      <span class="lock">🔒</span> <b id="secretCount">0</b>/<span id="secretTotal">8</span>
+    </button>
+    <button class="mode-toggle" id="modeToggle" aria-label="Switch between Suit and Code mode">
+      <span class="mt-opt mt-biz">Suit</span>
+      <span class="mt-opt mt-dev">Code</span>
+      <span class="mt-knob"></span>
+    </button>
+  </div>
+</header>
+
+<div class="secrets-pop" id="secretsPop" hidden>
+  <div class="sp-head"><b>Secrets</b><span>Explore the site to unlock them all.</span></div>
+  <ul id="secretList"></ul>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <p class="eyebrow reveal" data-dev="// sydney.au · status: <span class='blink-dot'></span> building">Strategy × AI × Product · Sydney, Australia</p>
+  <h1 class="hero-name reveal">
+    <span class="hn-line">Chirag</span>
+    <span class="hn-line"><em>Arora</em><span class="cursor-blink" aria-hidden="true">_</span></span>
+  </h1>
+  <p class="hero-speak reveal">I speak <span class="rotator" id="rotator">boardroom</span><br class="br-m" /> — and I actually ship.</p>
+  <p class="hero-sub reveal" data-dev="<span class='c'>/**</span> CS (AI/ML) grad → 4.5 yrs analytics &amp; consulting → UNSW MCom → shipping AI products. <span class='c'>*/</span>">
+    Master of Commerce student at UNSW who blends business, strategy and AI — with <b>4.5 years</b> in analytics and consulting, and a <b>shipped AI product</b> of his own.
+  </p>
+  <div class="hero-ctas reveal">
+    <a class="btn btn-primary" href="#road" data-dev="$ start --road-trip">Take the road trip ↓</a>
+    <button class="btn btn-ghost" id="openTerm" data-dev="$ open terminal">Open terminal <kbd>/</kbd></button>
+  </div>
+
+  <div class="hero-stats reveal">
+    <div class="stat"><b data-count="17" data-prefix="$" data-suffix="M">$0M</b><span>revenue-at-risk flagged by my churn model</span></div>
+    <div class="stat"><b data-count="30" data-prefix="$" data-suffix="M">$0M</b><span>revenue-recognition opportunities surfaced</span></div>
+    <div class="stat"><b data-count="43" data-prefix="+" data-suffix="%">+0%</b><span>NPS lift on a program I ran end to end</span></div>
+    <div class="stat"><b data-count="1" data-suffix=" live AI product">0</b><span>built &amp; launched solo — <a href="#projects">try the demo</a></span></div>
+  </div>
+
+  <p class="hero-hint reveal">Psst — this site has <b>8 secrets</b>. Flip the <b>Suit/Code</b> switch up top to start.</p>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <span>Business analysis</span><i>✦</i><span>Python</span><i>✦</i><span>Strategy</span><i>✦</i><span>TypeScript</span><i>✦</i><span>Product management</span><i>✦</i><span>Chrome Extensions (MV3)</span><i>✦</i><span>Stakeholder management up to C-suite</span><i>✦</i><span>SQL</span><i>✦</i><span>Paid acquisition</span><i>✦</i><span>AI-assisted development</span><i>✦</i><span>Salesforce · FinancialForce</span><i>✦</i><span>UI/UX prototyping</span><i>✦</i>
+    <span>Business analysis</span><i>✦</i><span>Python</span><i>✦</i><span>Strategy</span><i>✦</i><span>TypeScript</span><i>✦</i><span>Product management</span><i>✦</i><span>Chrome Extensions (MV3)</span><i>✦</i><span>Stakeholder management up to C-suite</span><i>✦</i><span>SQL</span><i>✦</i><span>Paid acquisition</span><i>✦</i><span>AI-assisted development</span><i>✦</i><span>Salesforce · FinancialForce</span><i>✦</i><span>UI/UX prototyping</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="about section" id="about">
+  <div class="about-grid">
+    <div class="about-left reveal">
+      <p class="kicker" data-dev="cat about.md">The short version</p>
+      <h2 class="h2" data-dev="engineer<span class='acc'>.then(</span>business<span class='acc'>)</span>">An engineer who <em>turned</em> business builder.</h2>
+    </div>
+    <div class="about-right reveal">
+      <p>I started in <b>Computer Science, specialising in AI &amp; Machine Learning</b>. Then I spent nearly five years growing from intern to <b>Principal Analyst</b> at a global SaaS company. Now I'm doing a <b>Master of Commerce at UNSW</b> in Sydney and building my own AI products on the side.</p>
+      <p>I'm equally comfortable in a C-suite conversation, a spreadsheet model and a codebase. What I like most is taking a messy, undefined problem and turning it into something real people can use, whether that's a measurement system for a 1,000-person team or a Chrome extension I built and launched myself.</p>
+      <div class="lang-meter">
+        <div class="lm-row"><span>Boardroom</span><div class="lm-bar"><i style="--w:92%"></i></div></div>
+        <div class="lm-row"><span>Spreadsheet</span><div class="lm-bar"><i style="--w:96%"></i></div></div>
+        <div class="lm-row"><span>Codebase</span><div class="lm-bar"><i style="--w:85%"></i></div></div>
+        <div class="lm-row"><span>No playbook yet</span><div class="lm-bar"><i style="--w:100%"></i></div></div>
+      </div>
+      <p class="tiny muted">*Bars are vibes, not KPIs. The KPIs are further down.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROAD TRIP ============ -->
+<section class="road-section section" id="road">
+  <div class="section-head reveal">
+    <p class="kicker" data-dev="git log --oneline --graph">The road so far</p>
+    <h2 class="h2" data-dev="journey<span class='acc'>.map(</span>stop =&gt; growth<span class='acc'>)</span>">Chandigarh → Hyderabad → <em>Sydney</em>.</h2>
+    <p class="muted">Scroll to drive. The little red car is a Mazda 2, obviously.</p>
+  </div>
+
+  <div class="road" id="roadWrap">
+    <svg class="road-svg" id="roadSvg" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true">
+      <path id="roadPathBg" class="road-bg" d="" />
+      <path id="roadPath" class="road-line" d="" />
+      <path id="roadPathDone" class="road-done" d="" />
+    </svg>
+    <div class="car" id="car" aria-hidden="true">
+      <svg viewBox="0 0 40 70" width="30" height="52">
+        <rect x="4" y="4" width="32" height="62" rx="12" fill="#c8102e"/>
+        <rect x="8" y="14" width="24" height="13" rx="4" fill="#1b1b1b" opacity=".85"/>
+        <rect x="8" y="46" width="24" height="10" rx="4" fill="#1b1b1b" opacity=".8"/>
+        <rect x="6" y="2" width="8" height="4" rx="2" fill="#ffe9a8"/>
+        <rect x="26" y="2" width="8" height="4" rx="2" fill="#ffe9a8"/>
+        <rect x="6" y="64" width="8" height="3" rx="1.5" fill="#ff3b3b"/>
+        <rect x="26" y="64" width="8" height="3" rx="1.5" fill="#ff3b3b"/>
+      </svg>
+    </div>
+
+    <ol class="stops">
+      <li class="stop" data-side="left">
+        <span class="s-when">2018 · Chandigarh, India</span>
+        <h3>Boot sequence</h3>
+        <p>B.E. Computer Science, <b>Artificial Intelligence &amp; Machine Learning</b> at Chandigarh University (2018–2022). Learned how machines learn, and that most real problems aren't purely technical.</p>
+      </li>
+      <li class="stop" data-side="right">
+        <span class="s-when">Jul 2021 · Hyderabad, India</span>
+        <h3>Joins Highradius as an intern</h3>
+        <p>Business Analyst Intern at a global SaaS company. This is where I found out I liked the place where data meets decisions.</p>
+      </li>
+      <li class="stop" data-side="left">
+        <span class="s-when">2021 → 2025 · Highradius</span>
+        <h3>The climb: four roles</h3>
+        <p>Intern → Associate Business Analyst → Senior Analyst → <b>Principal Analyst</b>, on a double-promotion trajectory. Churn models, margin systems, NPS, board decks, and sessions with the CEO, CTO and Consulting SVP.</p>
+        <a class="s-link" href="#work">See the loot ↓</a>
+      </li>
+      <li class="stop" data-side="right">
+        <span class="s-when">Feb 2026 · Sydney, Australia</span>
+        <h3>New city, new chapter</h3>
+        <p><b>UNSW Master of Commerce (Extension)</b>, specialising in Business Analytics and Digital Transformation &amp; Technology Management. Joined startup <b>Well.AI</b> as Business Growth &amp; Strategy Executive.</p>
+      </li>
+      <li class="stop" data-side="left">
+        <span class="s-when">2026 · Solo founder</span>
+        <h3>Ships Visual Product Finder</h3>
+        <p>A live AI Chrome extension. I ran it end to end: product, backend, affiliate system across 3 marketplaces, paid ads and launch content.</p>
+        <a class="s-link" href="#projects">Try the mini-demo ↓</a>
+      </li>
+      <li class="stop" data-side="right">
+        <span class="s-when">Summer Term 2027 · Up next</span>
+        <h3>Sydney Children's Hospital Network</h3>
+        <p>Selected for a UNSW industry placement (CDEV6000) supporting readiness for the <b>Single Digital Patient Record</b>, NSW Health's statewide digital transformation, through workflow analysis and change management.</p>
+      </li>
+      <li class="stop stop-final" data-side="left">
+        <span class="s-when">Next stop · ???</span>
+        <h3>Your team?</h3>
+        <p>Looking for internships &amp; graduate roles in <b>consulting, strategy, product and AI</b>.</p>
+        <a class="btn btn-primary btn-sm" href="#contact">Let's talk →</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ HIGHRADIUS / WORK ============ -->
+<section class="work section" id="work">
+  <div class="section-head reveal">
+    <p class="kicker" data-dev="career.levelUp()">Experience</p>
+    <h2 class="h2" data-dev="highradius<span class='acc'>.achievements</span>">Highradius, <em>levelled up.</em></h2>
+    <p class="muted">Jul 2021 – Dec 2025 · Hyderabad · ~4.5 years · 4 levels cleared</p>
+  </div>
+
+  <div class="xp reveal" id="xp">
+    <div class="xp-track"><div class="xp-fill" id="xpFill"></div></div>
+    <ol class="xp-levels">
+      <li><span class="lv">LV 1</span>Business Analyst Intern</li>
+      <li><span class="lv">LV 2</span>Associate Business Analyst</li>
+      <li><span class="lv">LV 3</span>Senior Analyst</li>
+      <li><span class="lv">LV 4</span>Principal Analyst</li>
+    </ol>
+  </div>
+
+  <p class="loot-title reveal"><span class="loot-dot"></span> Achievements unlocked <span class="muted">(hover / tap for the story)</span></p>
+  <div class="loot">
+    <article class="ach reveal" tabindex="0">
+      <b class="ach-big">$17M</b><span class="ach-name">Churn forecaster</span>
+      <p>Built a churn forecasting model that identified $17M of revenue at risk, so the team could mitigate it before it happened.</p>
+    </article>
+    <article class="ach reveal" tabindex="0">
+      <b class="ach-big">$30M</b><span class="ach-name">Timeline tracker</span>
+      <p>Built a project management system overseeing 3,000+ projects, plus a timeline tracker that surfaced $30M in revenue-recognition opportunities.</p>
+    </article>
+    <article class="ach reveal" tabindex="0">
+      <b class="ach-big">+43%</b><span class="ach-name">Voice of the customer</span>
+      <p>Led the NPS program end to end (surveys, dashboards, client connects) and improved NPS by 43%. Earlier, moved a CSAT metric from −7 to 34.</p>
+    </article>
+    <article class="ach reveal" tabindex="0">
+      <b class="ach-big">1,000+</b><span class="ach-name">Measurement architect</span>
+      <p>Designed performance measurement systems tracking KPIs for 1,000+ resources.</p>
+    </article>
+    <article class="ach reveal" tabindex="0">
+      <b class="ach-big">−60%</b><span class="ach-name">Ticket slayer</span>
+      <p>Drove a 60% reduction in change-request tickets through analytical problem-solving.</p>
+    </article>
+    <article class="ach reveal" tabindex="0">
+      <b class="ach-big">Margin</b><span class="ach-name">Capacity &amp; profit</span>
+      <p>Built a project margin system and a capacity model that helped leadership optimise resource allocation and profitability.</p>
+    </article>
+    <article class="ach reveal" tabindex="0">
+      <b class="ach-big">FF</b><span class="ach-name">Platform rollout</span>
+      <p>Directed the implementation of FinancialForce (on Salesforce), and trained Program Directors, Delivery Directors and Project Managers to adopt it.</p>
+    </article>
+    <article class="ach reveal" tabindex="0">
+      <b class="ach-big">C-suite</b><span class="ach-name">Boardroom regular</span>
+      <p>Produced Quarterly Business Reports and board decks, and ran executive relationship sessions with $0.5M+ clients alongside the CEO, CTO and Consulting SVP.</p>
+    </article>
+    <article class="ach reveal" tabindex="0">
+      <b class="ach-big">🏆 ×3</b><span class="ach-name">Decorated</span>
+      <p>Award of Applause, Star Team Award, and "Highako of the Quarter".</p>
+    </article>
+  </div>
+
+  <div class="side-quests">
+    <div class="sq reveal">
+      <span class="sq-tag">Now · Feb 2026 – present</span>
+      <h3>Well.AI <span class="muted">· Sydney · volunteer</span></h3>
+      <p class="sq-role">Business Growth &amp; Strategy Executive</p>
+      <ul>
+        <li>Leads business strategy and operations across pricing, client acquisition and market expansion.</li>
+        <li>Built pricing models, onboarding frameworks and project plans.</li>
+        <li>Market research &amp; business development, e.g. identifying school clients.</li>
+        <li>Designed the UI/UX for <b>"Wellbeing Buddy"</b> and built a working prototype with Claude Code.</li>
+      </ul>
+    </div>
+    <div class="sq reveal">
+      <span class="sq-tag">Summer Term 2027</span>
+      <h3>UNSW CDEV6000 <span class="muted">· Partnered Work Project</span></h3>
+      <p class="sq-role">Sydney Children's Hospital Network</p>
+      <ul>
+        <li>Contributing to readiness for the <b>Single Digital Patient Record (SDPR)</b>, a statewide NSW Health digital transformation program.</li>
+        <li>Workflow analysis + change management.</li>
+      </ul>
+    </div>
+    <div class="sq reveal">
+      <span class="sq-tag">Education</span>
+      <h3>UNSW Sydney</h3>
+      <p class="sq-role">Master of Commerce (Extension) · Feb 2026 – present</p>
+      <ul><li>Business Analytics · Digital Transformation &amp; Technology Management</li></ul>
+      <h3 class="mt">Chandigarh University</h3>
+      <p class="sq-role">B.E. Computer Science (AI &amp; ML) · 2018 – 2022</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="projects section" id="projects">
+  <div class="section-head reveal">
+    <p class="kicker" data-dev="ls -la ./projects">Projects</p>
+    <h2 class="h2" data-dev="things<span class='acc'>.filter(</span>shipped<span class='acc'>)</span>">Things I've <em>built.</em></h2>
+  </div>
+
+  <!-- VPF featured -->
+  <div class="vpf reveal">
+    <div class="vpf-info">
+      <span class="pill pill-live"><i></i> Live</span>
+      <h3>Visual Product Finder</h3>
+      <p class="vpf-role">Solo Founder &amp; Product Manager · 2026</p>
+      <p>A live <b>Chrome extension (Manifest V3)</b>. Click any image or paused video frame on a webpage and it uses <b>AI vision</b> to identify the product, then gives you real Amazon/Flipkart search links.</p>
+      <ul class="vpf-list">
+        <li>Directed the whole build with AI-assisted development: the extension, an <b>Express/TypeScript backend on Render</b>, and the landing page.</li>
+        <li>Region-aware affiliate system across <b>3 Amazon marketplaces</b> (US, India, Australia), including W-8BEN registration, plus Cuelinks &amp; Impact.com.</li>
+        <li>Ran <b>Google Ads</b> (search + video) and made launch content for YouTube, TikTok, Instagram &amp; LinkedIn.</li>
+        <li>Diagnosed funnel issues from live analytics and shipped fixes. It only ever shows real marketplace results.</li>
+      </ul>
+      <div class="vpf-ctas">
+        <a class="btn btn-primary" href="https://visual-product-finder-site.onrender.com/" target="_blank" rel="noopener">Visit live site ↗</a>
+        <a class="btn btn-ghost" href="https://lnkd.in/p/gix2mAcM" target="_blank" rel="noopener">Watch demo ↗</a>
+      </div>
+    </div>
+
+    <div class="vpf-demo" id="vpfDemo">
+      <div class="browser">
+        <div class="b-bar"><i></i><i></i><i></i><span class="b-url">some-random-blog.com/my-desk-setup</span><span class="b-ext" title="VPF extension">🔍</span></div>
+        <div class="b-body">
+          <p class="b-caption">👆 Click any item to find it, just like the extension.</p>
+          <div class="scene">
+            <button class="item" data-name="Over-ear wireless headphones" data-q="wireless over ear headphones">🎧</button>
+            <button class="item" data-name="Analog wristwatch, leather strap" data-q="analog watch leather strap">⌚</button>
+            <button class="item" data-name="White running sneakers" data-q="white running sneakers">👟</button>
+            <button class="item" data-name="Aviator sunglasses" data-q="aviator sunglasses">🕶️</button>
+            <button class="item" data-name="Everyday backpack" data-q="everyday backpack">🎒</button>
+            <button class="item" data-name="Ceramic coffee mug" data-q="ceramic coffee mug">☕</button>
+          </div>
+          <div class="vpf-result" id="vpfResult" aria-live="polite">
+            <p class="muted">No item selected yet.</p>
+          </div>
+        </div>
+      </div>
+      <p class="tiny muted demo-note">This mini-demo is simulated. The links are real searches. The <a href="https://visual-product-finder-site.onrender.com/" target="_blank" rel="noopener">real extension</a> uses AI vision on any image.</p>
+    </div>
+  </div>
+
+  <!-- Other projects -->
+  <div class="filters reveal" role="tablist">
+    <button class="chip active" data-filter="all">All</button>
+    <button class="chip" data-filter="prototype">Prototypes</button>
+    <button class="chip" data-filter="concept">Concepts</button>
+    <button class="chip" data-filter="experiment">Experiments</button>
+    <button class="chip" data-filter="strategy">Strategy</button>
+  </div>
+  <div class="proj-grid">
+    <article class="proj reveal" data-kind="prototype">
+      <span class="proj-emoji">🫶</span>
+      <span class="pill">Prototype · Well.AI</span>
+      <h3>Wellbeing Buddy</h3>
+      <p>Designed the user experience for a wellbeing app and built a working prototype with AI-assisted development.</p>
+      <span class="proj-tags">UI/UX · Claude Code · Rapid MVP</span>
+    </article>
+    <article class="proj reveal" data-kind="prototype">
+      <span class="proj-emoji">🍛</span>
+      <span class="pill">Prototype</span>
+      <h3>Nutrient tracker for desi kitchens</h3>
+      <p>A React prototype for a gap in the market: nutrition tracking for <b>South Asian home-cooked food</b>. Your dal tadka deserves accurate macros too.</p>
+      <span class="proj-tags">React · Market-gap thinking</span>
+    </article>
+    <article class="proj reveal" data-kind="concept">
+      <span class="proj-emoji">🏅</span>
+      <span class="pill">Concept · Solo founder</span>
+      <h3>RankUp</h3>
+      <p>A verified athletic portfolio platform for amateur sport, so everyday athletes get a credible, verified profile of how they perform.</p>
+      <span class="proj-tags">Platform strategy · Product</span>
+    </article>
+    <article class="proj reveal" data-kind="experiment">
+      <span class="proj-emoji">🤖</span>
+      <span class="pill">Experiment</span>
+      <h3>AI content channels</h3>
+      <p>AI-generated video channels, including car-to-robot transformation Shorts and kids' animated Shorts, made with generative tools.</p>
+      <span class="proj-tags">ElevenLabs · Google Flow · Viblo</span>
+    </article>
+    <article class="proj reveal" data-kind="strategy">
+      <span class="proj-emoji">🏟️</span>
+      <span class="pill">Case competition</span>
+      <h3>Swysh · 180DC × Altman Solon</h3>
+      <p>A 12-slide strategy deck for an Australian sports fan-engagement platform: a two-engine subscription model, tiered pricing, loyalty mechanics and a phased 5-year roadmap.</p>
+      <span class="proj-tags">Strategy · Unit economics · Social impact</span>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PROOF FINDER ============ -->
+<section class="proof section" id="proof">
+  <div class="section-head reveal">
+    <p class="kicker" data-dev="grep -r &quot;evidence&quot; ./chirag">Skills, with receipts</p>
+    <h2 class="h2" data-dev="hire<span class='acc'>(</span>need<span class='acc'>)</span> → proof">What do you <em>need?</em></h2>
+    <p class="muted">Pick what your team is hiring for. I'll show you the evidence.</p>
+  </div>
+  <div class="needs reveal" id="needs"></div>
+  <div class="evidence" id="evidence" aria-live="polite"></div>
+
+  <div class="toolbox reveal">
+    <div class="tb-col">
+      <h4>🧠 AI &amp; emerging tech</h4>
+      <p>AI fluency · prompt engineering · AI-assisted development (Claude Code) · applied generative AI · AI content across video/image/audio · UI/UX design &amp; prototyping · rapid MVP development</p>
+    </div>
+    <div class="tb-col">
+      <h4>📈 Business &amp; strategy</h4>
+      <p>Business analysis · data analysis · strategy · consulting · product management · digital marketing &amp; paid acquisition · stakeholder management (to C-suite) · measurement frameworks · process implementation · executive reporting</p>
+    </div>
+    <div class="tb-col">
+      <h4>⌨️ Technical</h4>
+      <p>SQL · Python · JavaScript / TypeScript · Chrome Extensions (MV3) · Express / Node · Advanced Excel · Salesforce · FinancialForce · Google Apps Script · dashboards · Google Ads &amp; Analytics</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFF THE CLOCK ============ -->
+<section class="otc section" id="otc">
+  <div class="section-head reveal">
+    <p class="kicker" data-dev="cat ~/hobbies.txt">Off the clock</p>
+    <h2 class="h2" data-dev="while<span class='acc'>(</span>!working<span class='acc'>)</span> { }">The human <em>bits.</em></h2>
+    <p class="muted">Everything here does something. Poke it.</p>
+  </div>
+  <div class="otc-grid">
+    <button class="otc-card reveal" id="mazda">
+      <span class="otc-emoji">🚗</span>
+      <h3>Cars</h3>
+      <p>I drive a Mazda 2. Small car, big opinions.</p>
+      <span class="otc-cta">Tap to rev</span>
+      <span class="vroom" aria-hidden="true">VROOM</span>
+    </button>
+    <button class="otc-card reveal" id="gym">
+      <span class="otc-emoji">💪</span>
+      <h3>Fitness</h3>
+      <p>Lifting keeps the brain in shape. Do a set with me.</p>
+      <span class="otc-cta">Reps: <b id="reps">0</b>/10</span>
+    </button>
+    <button class="otc-card reveal" id="music">
+      <span class="otc-emoji">🎶</span>
+      <h3>Punjabi music</h3>
+      <p>Recently caught Karan Aujla live, and it was worth every second.</p>
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="otc-cta">Tap to vibe</span>
+    </button>
+    <div class="otc-card otc-wide reveal">
+      <span class="otc-emoji">🎬</span>
+      <h3>Content creator</h3>
+      <p>I make self-aware POV videos about the international-student experience in Australia. Culturally specific, occasionally painful, always real.</p>
+      <div class="pov">
+        <span>POV: you convert every price to rupees before buying groceries</span>
+        <span>POV: your first Sydney winter "isn't even that cold" (it is)</span>
+        <span>POV: explaining "kiddan" to your Aussie flatmate</span>
+      </div>
+    </div>
+    <div class="otc-card otc-wide reveal">
+      <span class="otc-emoji">🧪</span>
+      <h3>Entrepreneur brain, always on</h3>
+      <p>I keep coming back to digital business models, app development, content monetisation and platform strategy. I'm at my best early, when the work is unstructured and nobody has written a playbook yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact section" id="contact">
+  <p class="kicker reveal" data-dev="npm run collaborate">Contact</p>
+  <h2 class="contact-big reveal" data-dev="got_a_messy_problem<span class='acc'>?</span>">Got a messy problem with <em>no playbook?</em></h2>
+  <p class="contact-sub reveal">Those are my favourite kind. Internships, grad roles, side projects, or just a coffee in Sydney.</p>
+  <div class="contact-ctas reveal">
+    <button class="btn btn-primary btn-lg" id="copyEmail" data-email="chiragarora0999@gmail.com">
+      <span class="ce-text">chiragarora0999@gmail.com</span> <span class="ce-icon">⧉</span>
+    </button>
+    <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/chirag-arora-034a22123/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn btn-ghost btn-lg" href="mailto:chiragarora0999@gmail.com">Email me ✉</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>© <span id="yr"></span> Chirag Arora · Sydney</span>
+  <span class="foot-mid">Built with Claude Code, naturally. Secrets found: <b id="footSecrets">0</b>/8</span>
+  <span class="foot-hint">Try <kbd>/</kbd> · or ↑↑↓↓←→←→BA</span>
+</footer>
+
+<!-- ============ TERMINAL ============ -->
+<div class="term-overlay" id="termOverlay" hidden>
+  <div class="term" role="dialog" aria-label="Chirag terminal">
+    <div class="term-bar"><i class="tc r" id="termClose"></i><i class="tc y"></i><i class="tc g"></i><span>chirag@sydney: ~</span></div>
+    <div class="term-out" id="termOut"></div>
+    <form class="term-in" id="termForm" autocomplete="off">
+      <span class="prompt">chirag@sydney:~$</span>
+      <input id="termInput" spellcheck="false" aria-label="Terminal input" />
+    </form>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script src="app.js"></script>
+</body>
+</html>
