@@ -13,138 +13,123 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=6" />
+<link rel="stylesheet" href="style.css?v=8" />
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
-<!-- ============ NAV ============ -->
-<header class="nav">
-  <a href="#top" class="logo" id="logo" aria-label="Back to top"><span data-dev="&amp;lt;CA/&amp;gt;">CA</span></a>
-  <nav class="nav-links">
-    <a href="#road" data-dev="./road">Journey</a>
-    <a href="#work" data-dev="./work">Work</a>
-    <a href="#projects" data-dev="./ship">Projects</a>
-    <a href="#proof" data-dev="./proof">Proof</a>
-    <a href="#contact" data-dev="./ping">Contact</a>
-  </nav>
-  <div class="nav-right">
-    <button class="secrets-badge" id="secretsBadge" aria-label="Secrets found">
-      <span class="lock">🔒</span> <b id="secretCount">0</b>/<span id="secretTotal">8</span>
-    </button>
-    <button class="mode-toggle" id="modeToggle" aria-label="Switch between Suit and Code mode">
-      <span class="mt-opt mt-biz">Suit</span>
-      <span class="mt-opt mt-dev">Code</span>
-      <span class="mt-knob"></span>
-    </button>
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <a href="#top" class="mh-name" id="logo" aria-label="Back to the cover"><span data-dev="&amp;lt;chirag.arora/&amp;gt;">Chirag Arora</span></a>
+  <span class="mh-issue">Issue 01 · Sydney edition · 2026</span>
+  <div class="mh-right">
+    <button class="secrets-badge" id="secretsBadge" aria-label="Secrets found"><span class="lock">🔒</span> <b id="secretCount">0</b>/<span id="secretTotal">8</span></button>
+    <button class="mode-toggle" id="modeToggle" aria-label="Switch between Suit and Code mode"><span class="mt-opt mt-biz">Suit</span><span class="mt-opt mt-dev">Code</span><span class="mt-knob"></span></button>
+    <button class="mh-contents" id="contentsBtn" aria-expanded="false" aria-controls="contentsPanel"><span class="burger"><i></i><i></i></span><span class="mh-c-label">Contents</span></button>
   </div>
 </header>
 
 <div class="secrets-pop" id="secretsPop" hidden>
-  <div class="sp-head"><b>Secrets</b><span>Explore the site to unlock them all.</span></div>
+  <div class="sp-head"><b>Secrets</b><span>Explore the issue to unlock them all.</span></div>
   <ul id="secretList"></ul>
 </div>
 
+<nav class="contents-panel" id="contentsPanel" hidden aria-label="Contents">
+  <p class="cp-kicker">In this issue</p>
+  <ol>
+    <li><a href="#top"><span>00</span>Cover</a></li>
+    <li><a href="#about"><span>—</span>Contents &amp; editor's letter</a></li>
+    <li><a href="#road"><span>01</span>The drive <em>a playable feature</em></a></li>
+    <li><a href="#work"><span>02</span>By the numbers <em>the Highradius years</em></a></li>
+    <li><a href="#projects"><span>03</span>The work <em>cover story + 14 case studies</em></a></li>
+    <li><a href="#clouds"><span>04</span>In a few words <em>live reader poll</em></a></li>
+    <li><a href="#proof"><span>05</span>The interview <em>skills, with receipts</em></a></li>
+    <li><a href="#otc"><span>06</span>Off the clock <em>the lifestyle pages</em></a></li>
+    <li><a href="#contact"><span>07</span>Letters <em>get in touch</em></a></li>
+  </ol>
+</nav>
+
 <main id="top">
 
-<!-- ============ HERO ============ -->
-<section class="hero" id="hero">
+<!-- ============ COVER ============ -->
+<section class="cover" id="hero">
   <div class="hero-glow" aria-hidden="true"></div>
-  <p class="eyebrow reveal" data-dev="// sydney.au · status: <span class='blink-dot'></span> building">Strategy × AI × Product · Sydney, Australia</p>
-  <h1 class="hero-name reveal">
-    <span class="hn-line">Chirag</span>
-    <span class="hn-line"><em>Arora</em><span class="cursor-blink" aria-hidden="true">_</span></span>
+  <div class="cv-strip">
+    <span>No. 01</span><span class="cv-hide-m">Strategy · AI · Product</span><span class="cv-hide-m">Sydney, Australia</span><span>Free to read</span>
+  </div>
+
+  <h1 class="cv-title reveal">
+    <span class="cv-the" data-dev="// the">The</span>
+    <span class="cv-l1" data-dev="bilingual">bilingual</span>
+    <span class="cv-l2"><em data-dev="builder()">builder.</em></span>
   </h1>
-  <p class="hero-speak reveal">I speak <span class="rotator" id="rotator">boardroom</span><br class="br-m" /> — and I actually ship.</p>
-  <p class="hero-sub reveal" data-dev="<span class='c'>/**</span> CS (AI/ML) grad → 4.5 yrs analytics &amp; consulting → UNSW MCom → shipping AI products. <span class='c'>*/</span>">
-    Master of Commerce student at UNSW who blends business, strategy and AI — with <b>4.5 years</b> in analytics and consulting, and a <b>shipped AI product</b> of his own.
-  </p>
-  <div class="hero-ctas reveal">
-    <a class="btn btn-primary" href="#road" data-dev="$ start --road-trip">Take the road trip ↓</a>
-    <button class="btn btn-ghost" id="openTerm" data-dev="$ open terminal">Open terminal <kbd>/</kbd></button>
-  </div>
 
-  <div class="hero-stats reveal">
-    <div class="stat"><b data-count="17" data-prefix="$" data-suffix="M">$0M</b><span>revenue-at-risk flagged by my churn model</span></div>
-    <div class="stat"><b data-count="30" data-prefix="$" data-suffix="M">$0M</b><span>revenue-recognition opportunities surfaced</span></div>
-    <div class="stat"><b data-count="43" data-prefix="+" data-suffix="%">+0%</b><span>NPS lift on a program I ran end to end</span></div>
-    <div class="stat"><b data-count="1" data-suffix=" live AI product">0</b><span>built &amp; launched solo — <a href="#projects">try the demo</a></span></div>
-  </div>
-
-  <p class="hero-hint reveal">Psst — this site has <b>8 secrets</b>. Flip the <b>Suit/Code</b> switch up top to start.</p>
-</section>
-
-<!-- ============ MARQUEE ============ -->
-<div class="marquee" aria-hidden="true">
-  <div class="mq-track">
-    <span>Business analysis</span><i>✦</i><span>Python</span><i>✦</i><span>Strategy</span><i>✦</i><span>TypeScript</span><i>✦</i><span>Product management</span><i>✦</i><span>Chrome Extensions (MV3)</span><i>✦</i><span>Stakeholder management up to C-suite</span><i>✦</i><span>SQL</span><i>✦</i><span>Paid acquisition</span><i>✦</i><span>AI-assisted development</span><i>✦</i><span>Salesforce · FinancialForce</span><i>✦</i><span>UI/UX prototyping</span><i>✦</i>
-    <span>Business analysis</span><i>✦</i><span>Python</span><i>✦</i><span>Strategy</span><i>✦</i><span>TypeScript</span><i>✦</i><span>Product management</span><i>✦</i><span>Chrome Extensions (MV3)</span><i>✦</i><span>Stakeholder management up to C-suite</span><i>✦</i><span>SQL</span><i>✦</i><span>Paid acquisition</span><i>✦</i><span>AI-assisted development</span><i>✦</i><span>Salesforce · FinancialForce</span><i>✦</i><span>UI/UX prototyping</span><i>✦</i>
-  </div>
-</div>
-
-<!-- ============ WORD CLOUDS ============ -->
-<section class="clouds section" id="clouds">
-  <div class="section-head reveal">
-    <p class="kicker" data-dev="poll.results('chirag')">Live poll · in words</p>
-    <h2 class="h2" data-dev="words<span class='acc'>.cloud()</span>">Chirag, in <em>a few words.</em></h2>
-    <p class="muted">Hover or tap any word for the story behind it. Then add your own.</p>
-  </div>
-
-  <div class="cloud-grid">
-    <article class="poll poll-feature reveal">
-      <aside class="poll-join">
-        <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges" aria-hidden="true" class="segno"><path class="qrline" stroke="currentColor" d="M0 0.5h7m1 0h2m5 0h2m1 0h1m3 0h7m-29 1h1m5 0h1m1 0h1m2 0h1m4 0h2m1 0h1m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h2m5 0h2m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m5 0h2m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h4m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m3 0h1m1 0h1m2 0h2m1 0h1m3 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-20 1h2m2 0h1m1 0h2m1 0h1m-19 1h1m2 0h6m1 0h4m2 0h2m3 0h1m2 0h1m1 0h3m-28 1h4m4 0h5m2 0h1m1 0h3m2 0h2m1 0h2m-28 1h1m5 0h1m2 0h2m2 0h1m1 0h1m1 0h1m3 0h1m1 0h1m2 0h1m-25 1h1m1 0h1m3 0h1m2 0h1m1 0h1m2 0h2m3 0h5m2 0h1m-28 1h1m1 0h1m2 0h3m1 0h4m1 0h2m2 0h2m1 0h1m5 0h1m-27 1h1m2 0h1m1 0h1m2 0h1m2 0h2m2 0h2m3 0h7m-29 1h1m1 0h1m3 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h3m1 0h1m1 0h1m-29 1h4m1 0h1m4 0h3m5 0h4m4 0h1m1 0h1m-29 1h1m2 0h6m1 0h1m1 0h1m1 0h1m6 0h1m1 0h1m1 0h1m-26 1h2m6 0h1m1 0h1m1 0h4m1 0h4m3 0h1m1 0h2m-28 1h4m1 0h4m1 0h1m4 0h1m1 0h1m1 0h1m3 0h3m2 0h1m-29 1h2m1 0h2m4 0h4m1 0h3m1 0h1m2 0h1m3 0h2m-27 1h3m1 0h4m2 0h5m1 0h2m2 0h8m-20 1h1m1 0h3m1 0h2m2 0h1m1 0h1m3 0h2m-26 1h7m1 0h2m4 0h4m1 0h2m1 0h1m1 0h2m-26 1h1m5 0h1m1 0h1m5 0h4m1 0h2m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h5m2 0h7m1 0h2m-29 1h1m1 0h3m1 0h1m1 0h4m3 0h2m2 0h1m1 0h1m6 0h1m-29 1h1m1 0h3m1 0h1m3 0h2m1 0h1m1 0h5m1 0h1m1 0h2m1 0h3m-29 1h1m5 0h1m2 0h1m5 0h1m2 0h2m2 0h2m1 0h2m1 0h1m-29 1h7m1 0h1m2 0h4m3 0h3m2 0h2"/></svg></div>
-        <p class="pj-at">Join at</p>
-        <p class="pj-url">chirag-arora<br/>.onrender.com</p>
-        <p class="pj-tag">#AboutChirag</p>
-      </aside>
-      <div class="poll-main">
-        <header class="poll-head"><span class="poll-live"><i></i> Active poll</span><h3>Describe Chirag in one word</h3><span class="poll-count" id="pollCount">0</span></header>
-        <div class="cloud" id="cloudYou" data-cloud="you"></div>
-        <form class="poll-form" id="pollForm" autocomplete="off">
-          <input id="pollInput" maxlength="18" placeholder="Type one word…" aria-label="Your word" />
-          <button class="btn btn-primary btn-sm" type="submit">Send</button>
-        </form>
-        <p class="poll-note" id="noteYou">Starter words come from how Chirag works. Yours is saved on this device.</p>
+  <div class="cv-grid">
+    <ul class="cv-lines reveal">
+      <li><a href="#work"><b>$17M</b> How a CS grad's churn model flagged revenue at risk <span>p.02</span></a></li>
+      <li><a href="#road"><b>Play</b> Drive through his story. Yes, it's a game <span>p.01</span></a></li>
+      <li><a href="#projects"><b>14</b> Case studies, from a live AI product to boardrooms <span>p.03</span></a></li>
+      <li><a href="#clouds"><b>Live</b> Describe him in one word. Everyone sees it <span>p.04</span></a></li>
+      <li><button type="button" class="cv-secret" id="openTerm"><b>8</b> Secrets hidden in this issue. Start in the terminal <span>&gt;_</span></button></li>
+    </ul>
+    <div class="cv-dek reveal">
+      <p class="hero-speak">I speak <span class="rotator" id="rotator">boardroom</span> and I actually ship.</p>
+      <p class="hero-sub" data-dev="<span class='c'>/**</span> CS (AI/ML) → 4.5 yrs analytics &amp; consulting → UNSW MCom → shipping AI products <span class='c'>*/</span>">Master of Commerce student at UNSW who blends business, strategy and AI, with <b>4.5 years</b> in analytics and consulting and a <b>shipped AI product</b> of his own.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#about">Read the issue ↓</a>
+        <a class="btn btn-ghost" href="#contact">Hire the cover star</a>
       </div>
-    </article>
-
-    <article class="poll reveal"><header class="poll-head"><h3>What does he bring to a team?</h3></header><div class="cloud" data-cloud="bring"></div><p class="poll-note">Hover a word.</p></article>
-    <article class="poll reveal"><header class="poll-head"><h3>Numbers he's moved</h3></header><div class="cloud" data-cloud="numbers"></div><p class="poll-note">Hover a word.</p></article>
-    <article class="poll reveal"><header class="poll-head"><h3>Where the journey's been</h3></header><div class="cloud" data-cloud="places"></div><p class="poll-note">Hover a word.</p></article>
-    <article class="poll reveal"><header class="poll-head"><h3>What he builds with</h3></header><div class="cloud" data-cloud="tools"></div><p class="poll-note">Hover a word.</p></article>
-    <article class="poll reveal"><header class="poll-head"><h3>Off the clock</h3></header><div class="cloud" data-cloud="life"></div><p class="poll-note">Hover a word.</p></article>
-  </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<section class="about section" id="about">
-  <div class="about-grid">
-    <div class="about-left reveal">
-      <p class="kicker" data-dev="cat about.md">The short version</p>
-      <h2 class="h2" data-dev="engineer<span class='acc'>.then(</span>business<span class='acc'>)</span>">An engineer who <em>turned</em> business builder.</h2>
-    </div>
-    <div class="about-right reveal">
-      <p>I started in <b>Computer Science, specialising in AI &amp; Machine Learning</b>. Then I spent nearly five years growing from intern to <b>Principal Analyst</b> at a global SaaS company. Now I'm doing a <b>Master of Commerce at UNSW</b> in Sydney and building my own AI products on the side.</p>
-      <p>I'm equally comfortable in a C-suite conversation, a spreadsheet model and a codebase. What I like most is taking a messy, undefined problem and turning it into something real people can use, whether that's a measurement system for a 1,000-person team or a Chrome extension I built and launched myself.</p>
-      <div class="lang-meter">
-        <div class="lm-row"><span>Boardroom</span><div class="lm-bar"><i style="--w:92%"></i></div></div>
-        <div class="lm-row"><span>Spreadsheet</span><div class="lm-bar"><i style="--w:96%"></i></div></div>
-        <div class="lm-row"><span>Codebase</span><div class="lm-bar"><i style="--w:85%"></i></div></div>
-        <div class="lm-row"><span>No playbook yet</span><div class="lm-bar"><i style="--w:100%"></i></div></div>
-      </div>
-      <p class="tiny muted">*Bars are vibes, not KPIs. The KPIs are further down.</p>
     </div>
   </div>
-</section>
 
-<!-- ============ GAME: DRIVE THROUGH MY STORY ============ -->
-<section class="road-section section" id="road">
-  <div class="section-head reveal">
-    <p class="kicker" data-dev="./drive --through=my-story">The road so far · a game</p>
-    <h2 class="h2" data-dev="journey<span class='acc'>.play()</span>">Drive through my <em>story.</em></h2>
-    <p class="muted">Chandigarh → Hyderabad → Sydney. Climb the hills, grab fuel, and pass each flag to unlock a chapter. Don't flip the car.</p>
+  <div class="cv-foot">
+    <svg class="barcode" viewBox="0 0 120 40" aria-hidden="true"><rect x="2.0" y="0" width="1.5" height="40"/><rect x="8.0" y="0" width="1" height="40"/><rect x="14.0" y="0" width="2" height="40"/><rect x="17.0" y="0" width="1" height="40"/><rect x="23.0" y="0" width="3" height="40"/><rect x="28.0" y="0" width="3" height="40"/><rect x="32.0" y="0" width="1" height="40"/><rect x="34.0" y="0" width="1.5" height="40"/><rect x="37.5" y="0" width="1" height="40"/><rect x="43.5" y="0" width="1" height="40"/><rect x="46.5" y="0" width="1" height="40"/><rect x="49.5" y="0" width="1" height="40"/><rect x="52.5" y="0" width="2" height="40"/><rect x="56.0" y="0" width="3" height="40"/><rect x="65.5" y="0" width="3" height="40"/><rect x="73.0" y="0" width="1" height="40"/><rect x="82.0" y="0" width="1" height="40"/><rect x="88.0" y="0" width="3" height="40"/><rect x="92.5" y="0" width="1" height="40"/><rect x="95.0" y="0" width="2" height="40"/><rect x="98.0" y="0" width="1" height="40"/><rect x="100.5" y="0" width="3" height="40"/><rect x="105.0" y="0" width="1.5" height="40"/><rect x="117.5" y="0" width="1" height="40"/></svg>
+    <span class="cv-url">chirag-arora.onrender.com</span>
   </div>
 
+  <a class="sticker" href="#contact" aria-label="Open to internships and graduate roles. Get in touch.">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <defs><path id="stickerPath" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+      <circle cx="60" cy="60" r="58"/>
+      <text><textPath href="#stickerPath" textLength="270" lengthAdjust="spacing">OPEN TO GRAD ROLES · INTERNSHIPS · 2026 · </textPath></text>
+    </svg>
+    <span class="sticker-mid">Hire<br/>me</span>
+  </a>
+</section>
+
+<!-- ============ CONTENTS + EDITOR'S LETTER ============ -->
+<section class="contents spread" id="about">
+  <div class="toc reveal">
+    <h2 class="toc-title" data-dev="ls ./issue-01">Contents</h2>
+    <ol class="toc-list">
+      <li><a href="#road"><span class="toc-n">01</span><span class="toc-t">The drive<small>A playable feature: Chandigarh → Hyderabad → Sydney</small></span><span class="toc-p">p.01</span></a></li>
+      <li><a href="#work"><span class="toc-n">02</span><span class="toc-t">By the numbers<small>Four and a half years at Highradius, intern to Principal</small></span><span class="toc-p">p.02</span></a></li>
+      <li><a href="#projects"><span class="toc-n">03</span><span class="toc-t">The work<small>Cover story: Visual Product Finder, plus 14 case studies</small></span><span class="toc-p">p.03</span></a></li>
+      <li><a href="#clouds"><span class="toc-n">04</span><span class="toc-t">In a few words<small>A live reader poll and five word clouds</small></span><span class="toc-p">p.04</span></a></li>
+      <li><a href="#proof"><span class="toc-n">05</span><span class="toc-t">The interview<small>Ask what you're hiring for, get the evidence</small></span><span class="toc-p">p.05</span></a></li>
+      <li><a href="#otc"><span class="toc-n">06</span><span class="toc-t">Off the clock<small>Cars, gym, Punjabi music, content</small></span><span class="toc-p">p.06</span></a></li>
+      <li><a href="#contact"><span class="toc-n">07</span><span class="toc-t">Letters<small>Got a messy problem? Write in</small></span><span class="toc-p">p.07</span></a></li>
+    </ol>
+  </div>
+  <article class="letter reveal">
+    <p class="letter-kicker" data-dev="cat editor.md">From the editor</p>
+    <p class="dropcap">I started in <b>Computer Science, specialising in AI &amp; Machine Learning</b>. Then I spent nearly five years growing from intern to <b>Principal Analyst</b> at a global SaaS company. Now I'm doing a <b>Master of Commerce at UNSW</b> in Sydney and building my own AI products on the side.</p>
+    <blockquote class="pull">“Equally comfortable in a C-suite conversation, a spreadsheet model and a codebase.”</blockquote>
+    <p>What I like most is taking a messy, undefined problem and turning it into something real people can use, whether that's a measurement system for a 1,000-person team or a Chrome extension I built and launched myself.</p>
+    <p class="letter-sign">Chirag Arora<span>Editor, subject and occasional driver · Sydney</span></p>
+  </article>
+</section>
+
+<!-- ============ 01 THE DRIVE ============ -->
+<section class="road-section spread" id="road">
+  <header class="ch-head reveal">
+    <span class="ch-no">01</span>
+    <div class="ch-text">
+      <p class="ch-kicker" data-dev="./drive --through=my-story">Feature · playable</p>
+      <h2 class="ch-title" data-dev="journey<span class='acc'>.play()</span>">The <em>drive.</em></h2>
+      <p class="ch-dek">Chandigarh → Hyderabad → Sydney. Climb the hills, grab fuel and pass each flag to unlock a chapter. Ease off the gas over jumps, or you'll flip.</p>
+    </div>
+  </header>
   <div class="game reveal" id="game" tabindex="0" aria-label="Driving game. Use right arrow to accelerate and left arrow to brake.">
     <canvas id="gameCanvas"></canvas>
 
@@ -185,16 +170,18 @@
   <div class="journal" id="journal"></div>
 </section>
 
-<!-- ============ HIGHRADIUS / WORK ============ -->
-<section class="work section" id="work">
-  <div class="section-head reveal">
-    <p class="kicker" data-dev="career.levelUp()">Experience</p>
-    <h2 class="h2" data-dev="highradius<span class='acc'>.achievements</span>">Highradius, <em>levelled up.</em></h2>
-    <p class="muted">Jul 2021 – Dec 2025 · Hyderabad · ~4.5 years · 4 levels cleared</p>
-  </div>
+<!-- ============ 02 BY THE NUMBERS ============ -->
+<section class="numbers spread" id="work">
+  <header class="ch-head reveal">
+    <span class="ch-no">02</span>
+    <div class="ch-text">
+      <p class="ch-kicker" data-dev="career.levelUp()">Report · Jul 2021 – Dec 2025</p>
+      <h2 class="ch-title" data-dev="highradius<span class='acc'>.ledger</span>">By the <em>numbers.</em></h2>
+      <p class="ch-dek">Four and a half years at Highradius, a global SaaS company in Hyderabad. Four roles, one double-promotion trajectory, and these results.</p>
+    </div>
+  </header>
 
-  <div class="xp reveal" id="xp">
-    <div class="xp-track"><div class="xp-fill" id="xpFill"></div></div>
+  <div class="stairs reveal" id="xp">
     <ol class="xp-levels">
       <li><span class="lv">LV 1</span>Business Analyst Intern</li>
       <li><span class="lv">LV 2</span>Associate Business Analyst</li>
@@ -203,85 +190,40 @@
     </ol>
   </div>
 
-  <p class="loot-title reveal"><span class="loot-dot"></span> Achievements unlocked <span class="muted">(hover / tap for the story)</span></p>
-  <div class="loot">
-    <article class="ach reveal" tabindex="0">
-      <b class="ach-big">$17M</b><span class="ach-name">Churn forecaster</span>
-      <p>Built a churn forecasting model that identified $17M of revenue at risk, so the team could mitigate it before it happened.</p>
-    </article>
-    <article class="ach reveal" tabindex="0">
-      <b class="ach-big">$30M</b><span class="ach-name">Timeline tracker</span>
-      <p>Built a project management system overseeing 3,000+ projects, plus a timeline tracker that surfaced $30M in revenue-recognition opportunities.</p>
-    </article>
-    <article class="ach reveal" tabindex="0">
-      <b class="ach-big">+43%</b><span class="ach-name">Voice of the customer</span>
-      <p>Led the NPS program end to end (surveys, dashboards, client connects) and improved NPS by 43%. Earlier, moved a CSAT metric from −7 to 34.</p>
-    </article>
-    <article class="ach reveal" tabindex="0">
-      <b class="ach-big">1,000+</b><span class="ach-name">Measurement architect</span>
-      <p>Designed performance measurement systems tracking KPIs for 1,000+ resources.</p>
-    </article>
-    <article class="ach reveal" tabindex="0">
-      <b class="ach-big">−60%</b><span class="ach-name">Ticket slayer</span>
-      <p>Drove a 60% reduction in change-request tickets through analytical problem-solving.</p>
-    </article>
-    <article class="ach reveal" tabindex="0">
-      <b class="ach-big">Margin</b><span class="ach-name">Capacity &amp; profit</span>
-      <p>Built a project margin system and a capacity model that helped leadership optimise resource allocation and profitability.</p>
-    </article>
-    <article class="ach reveal" tabindex="0">
-      <b class="ach-big">FF</b><span class="ach-name">Platform rollout</span>
-      <p>Directed the implementation of FinancialForce (on Salesforce), and trained Program Directors, Delivery Directors and Project Managers to adopt it.</p>
-    </article>
-    <article class="ach reveal" tabindex="0">
-      <b class="ach-big">C-suite</b><span class="ach-name">Boardroom regular</span>
-      <p>Produced Quarterly Business Reports and board decks, and ran executive relationship sessions with $0.5M+ clients alongside the CEO, CTO and Consulting SVP.</p>
-    </article>
-    <article class="ach reveal" tabindex="0">
-      <b class="ach-big">🏆 ×3</b><span class="ach-name">Decorated</span>
-      <p>Award of Applause, Star Team Award, and "Highako of the Quarter".</p>
-    </article>
+  <div class="ledger">
+    <div class="lg-row reveal"><b class="lg-n" data-count="17" data-prefix="$" data-suffix="M">$17M</b><div><h3>Revenue at risk, flagged early</h3><p>Built a churn forecasting model that identified $17M of revenue at risk, so the team could mitigate it before it happened.</p></div></div>
+    <div class="lg-row reveal"><b class="lg-n" data-count="30" data-prefix="$" data-suffix="M">$30M</b><div><h3>Revenue recognition, surfaced</h3><p>Built a project management system overseeing 3,000+ projects, plus a timeline tracker that surfaced $30M in revenue-recognition opportunities.</p></div></div>
+    <div class="lg-row reveal"><b class="lg-n" data-count="43" data-prefix="+" data-suffix="%">+43%</b><div><h3>NPS, run end to end</h3><p>Led the NPS program (surveys, dashboards, client connects) and lifted NPS 43%. Earlier, moved a CSAT metric from −7 to 34.</p></div></div>
+    <div class="lg-row reveal"><b class="lg-n" data-count="1000" data-suffix="+">1,000+</b><div><h3>Resources measured</h3><p>Designed performance measurement systems tracking KPIs for 1,000+ resources, plus a project margin system and capacity model for leadership.</p></div></div>
+    <div class="lg-row reveal"><b class="lg-n" data-count="60" data-prefix="−" data-suffix="%">−60%</b><div><h3>Change-request tickets</h3><p>Cut change-request tickets by 60% through analytical problem-solving, and directed the FinancialForce (Salesforce) rollout across delivery leadership.</p></div></div>
   </div>
 
-  <div class="side-quests">
-    <div class="sq reveal">
-      <span class="sq-tag">Now · Feb 2026 – present</span>
-      <h3>Well.AI <span class="muted">· Sydney · volunteer</span></h3>
-      <p class="sq-role">Business Growth &amp; Strategy Executive</p>
-      <ul>
-        <li>Leads business strategy and operations across pricing, client acquisition and market expansion.</li>
-        <li>Built pricing models, onboarding frameworks and project plans.</li>
-        <li>Market research &amp; business development, e.g. identifying school clients.</li>
-        <li>Designed the UI/UX for <b>"Wellbeing Buddy"</b> and built a working prototype with Claude Code.</li>
-      </ul>
-    </div>
-    <div class="sq reveal">
-      <span class="sq-tag">Summer Term 2027</span>
-      <h3>UNSW CDEV6000 <span class="muted">· Partnered Work Project</span></h3>
-      <p class="sq-role">Sydney Children's Hospital Network</p>
-      <ul>
-        <li>Contributing to readiness for the <b>Single Digital Patient Record (SDPR)</b>, a statewide NSW Health digital transformation program.</li>
-        <li>Workflow analysis + change management.</li>
-      </ul>
-    </div>
-    <div class="sq reveal">
-      <span class="sq-tag">Education</span>
-      <h3>UNSW Sydney</h3>
-      <p class="sq-role">Master of Commerce (Extension) · Feb 2026 – present</p>
-      <ul><li>Business Analytics · Digital Transformation &amp; Technology Management</li></ul>
-      <h3 class="mt">Chandigarh University</h3>
-      <p class="sq-role">B.E. Computer Science (AI &amp; ML) · 2018 – 2022</p>
-    </div>
+  <aside class="record reveal">
+    <h4>Also on the record</h4>
+    <ul>
+      <li><b>Boardroom.</b> Quarterly Business Reports and board decks; exec sessions with $0.5M+ clients alongside the CEO, CTO and Consulting SVP.</li>
+      <li><b>Awards.</b> Award of Applause, Star Team Award, "Highako of the Quarter".</li>
+      <li><b>Platform.</b> Trained Program Directors, Delivery Directors and PMs to adopt FinancialForce.</li>
+    </ul>
+  </aside>
+
+  <div class="elsewhere">
+    <article class="ew reveal"><span class="ew-tag">Now · Feb 2026 –</span><h3>Well.AI</h3><p class="ew-role">Business Growth &amp; Strategy Executive · Sydney · volunteer</p><p>Pricing models, client acquisition, onboarding frameworks and market expansion, including finding school clients. Designed and prototyped the <b>Wellbeing Buddy</b> app.</p></article>
+    <article class="ew reveal"><span class="ew-tag">Summer Term 2027</span><h3>Sydney Children's Hospital Network</h3><p class="ew-role">UNSW CDEV6000 · Partnered Work Project</p><p>Workflow analysis and change management for the <b>Single Digital Patient Record</b>, NSW Health's statewide digital transformation.</p></article>
+    <article class="ew reveal"><span class="ew-tag">Education</span><h3>UNSW Sydney</h3><p class="ew-role">Master of Commerce (Extension) · 2026 –</p><p>Business Analytics · Digital Transformation &amp; Technology Management.</p><h3 class="mt">Chandigarh University</h3><p class="ew-role">B.E. Computer Science (AI &amp; ML) · 2018 – 2022</p></article>
   </div>
 </section>
 
-<!-- ============ PROJECTS ============ -->
-<section class="projects section" id="projects">
-  <div class="section-head reveal">
-    <p class="kicker" data-dev="ls -la ./projects">Projects</p>
-    <h2 class="h2" data-dev="things<span class='acc'>.filter(</span>shipped<span class='acc'>)</span>">Things I've <em>built.</em></h2>
-  </div>
-
+<!-- ============ 03 THE WORK ============ -->
+<section class="projects spread" id="projects">
+  <header class="ch-head reveal">
+    <span class="ch-no">03</span>
+    <div class="ch-text">
+      <p class="ch-kicker" data-dev="ls -la ./work">Cover story</p>
+      <h2 class="ch-title" data-dev="things<span class='acc'>.filter(</span>shipped<span class='acc'>)</span>">The <em>work.</em></h2>
+      <p class="ch-dek">It starts with a product he built and launched alone. Then the index: every tile is a case study.</p>
+    </div>
+  </header>
   <!-- VPF featured -->
   <div class="vpf reveal">
     <div class="vpf-info">
@@ -323,11 +265,8 @@
     </div>
   </div>
 
-  <!-- Work index: case-study wall -->
-  <div class="wi-head reveal">
-    <h3 class="wi-title" data-dev="ls ./case-studies">The work index</h3>
-    <p class="muted">Every tile is a case study. Click one for the context, what I did and the outcome.</p>
-  </div>
+  
+  <div class="wi-head reveal"><h3 class="wi-title" data-dev="ls ./case-studies">The work index</h3><p class="muted">Click any tile for the context, what I did and the outcome.</p></div>
   <div class="wi-filters reveal" role="tablist" aria-label="Filter case studies">
     <button class="wi-pill active" data-f="all">All</button>
     <button class="wi-pill" data-f="highradius">Highradius</button>
@@ -355,87 +294,91 @@
   </dialog>
 </section>
 
-<!-- ============ PROOF FINDER ============ -->
-<section class="proof section" id="proof">
-  <div class="section-head reveal">
-    <p class="kicker" data-dev="grep -r &quot;evidence&quot; ./chirag">Skills, with receipts</p>
-    <h2 class="h2" data-dev="hire<span class='acc'>(</span>need<span class='acc'>)</span> → proof">What do you <em>need?</em></h2>
-    <p class="muted">Pick what your team is hiring for. I'll show you the evidence.</p>
-  </div>
-  <div class="needs reveal" id="needs"></div>
-  <div class="evidence" id="evidence" aria-live="polite"></div>
-
-  <div class="toolbox reveal">
-    <div class="tb-col">
-      <h4>🧠 AI &amp; emerging tech</h4>
-      <p>AI fluency · prompt engineering · AI-assisted development (Claude Code) · applied generative AI · AI content across video/image/audio · UI/UX design &amp; prototyping · rapid MVP development</p>
+<!-- ============ 04 IN A FEW WORDS ============ -->
+<section class="clouds spread" id="clouds">
+  <header class="ch-head reveal">
+    <span class="ch-no">04</span>
+    <div class="ch-text">
+      <p class="ch-kicker" data-dev="poll.results('chirag')">Reader poll · live</p>
+      <h2 class="ch-title" data-dev="words<span class='acc'>.cloud()</span>">In a few <em>words.</em></h2>
+      <p class="ch-dek">Hover or tap any word for the story behind it. Then add yours. Every reader sees it.</p>
     </div>
-    <div class="tb-col">
-      <h4>📈 Business &amp; strategy</h4>
-      <p>Business analysis · data analysis · strategy · consulting · product management · digital marketing &amp; paid acquisition · stakeholder management (to C-suite) · measurement frameworks · process implementation · executive reporting</p>
-    </div>
-    <div class="tb-col">
-      <h4>⌨️ Technical</h4>
-      <p>SQL · Python · JavaScript / TypeScript · Chrome Extensions (MV3) · Express / Node · Advanced Excel · Salesforce · FinancialForce · Google Apps Script · dashboards · Google Ads &amp; Analytics</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ OFF THE CLOCK ============ -->
-<section class="otc section" id="otc">
-  <div class="section-head reveal">
-    <p class="kicker" data-dev="cat ~/hobbies.txt">Off the clock</p>
-    <h2 class="h2" data-dev="while<span class='acc'>(</span>!working<span class='acc'>)</span> { }">The human <em>bits.</em></h2>
-    <p class="muted">Everything here does something. Poke it.</p>
-  </div>
-  <div class="otc-grid">
-    <button class="otc-card reveal" id="mazda">
-      <span class="otc-emoji">🚗</span>
-      <h3>Cars</h3>
-      <p>I drive a Mazda 2. Small car, big opinions.</p>
-      <span class="otc-cta">Tap to rev</span>
-      <span class="vroom" aria-hidden="true">VROOM</span>
-    </button>
-    <button class="otc-card reveal" id="gym">
-      <span class="otc-emoji">💪</span>
-      <h3>Fitness</h3>
-      <p>Lifting keeps the brain in shape. Do a set with me.</p>
-      <span class="otc-cta">Reps: <b id="reps">0</b>/10</span>
-    </button>
-    <button class="otc-card reveal" id="music">
-      <span class="otc-emoji">🎶</span>
-      <h3>Punjabi music</h3>
-      <p>Recently caught Karan Aujla live, and it was worth every second.</p>
-      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-      <span class="otc-cta">Tap to vibe</span>
-    </button>
-    <div class="otc-card otc-wide reveal">
-      <span class="otc-emoji">🎬</span>
-      <h3>Content creator</h3>
-      <p>I make self-aware POV videos about the international-student experience in Australia. Culturally specific, occasionally painful, always real.</p>
-      <div class="pov">
-        <span>POV: you convert every price to rupees before buying groceries</span>
-        <span>POV: your first Sydney winter "isn't even that cold" (it is)</span>
-        <span>POV: explaining "kiddan" to your Aussie flatmate</span>
+  </header>
+  <div class="cloud-grid">
+    <article class="poll poll-feature reveal">
+      <aside class="poll-join">
+        <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges" aria-hidden="true" class="segno"><path class="qrline" stroke="currentColor" d="M0 0.5h7m1 0h2m5 0h2m1 0h1m3 0h7m-29 1h1m5 0h1m1 0h1m2 0h1m4 0h2m1 0h1m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h2m5 0h2m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m5 0h2m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h4m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m3 0h1m1 0h1m2 0h2m1 0h1m3 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-20 1h2m2 0h1m1 0h2m1 0h1m-19 1h1m2 0h6m1 0h4m2 0h2m3 0h1m2 0h1m1 0h3m-28 1h4m4 0h5m2 0h1m1 0h3m2 0h2m1 0h2m-28 1h1m5 0h1m2 0h2m2 0h1m1 0h1m1 0h1m3 0h1m1 0h1m2 0h1m-25 1h1m1 0h1m3 0h1m2 0h1m1 0h1m2 0h2m3 0h5m2 0h1m-28 1h1m1 0h1m2 0h3m1 0h4m1 0h2m2 0h2m1 0h1m5 0h1m-27 1h1m2 0h1m1 0h1m2 0h1m2 0h2m2 0h2m3 0h7m-29 1h1m1 0h1m3 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h3m1 0h1m1 0h1m-29 1h4m1 0h1m4 0h3m5 0h4m4 0h1m1 0h1m-29 1h1m2 0h6m1 0h1m1 0h1m1 0h1m6 0h1m1 0h1m1 0h1m-26 1h2m6 0h1m1 0h1m1 0h4m1 0h4m3 0h1m1 0h2m-28 1h4m1 0h4m1 0h1m4 0h1m1 0h1m1 0h1m3 0h3m2 0h1m-29 1h2m1 0h2m4 0h4m1 0h3m1 0h1m2 0h1m3 0h2m-27 1h3m1 0h4m2 0h5m1 0h2m2 0h8m-20 1h1m1 0h3m1 0h2m2 0h1m1 0h1m3 0h2m-26 1h7m1 0h2m4 0h4m1 0h2m1 0h1m1 0h2m-26 1h1m5 0h1m1 0h1m5 0h4m1 0h2m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h5m2 0h7m1 0h2m-29 1h1m1 0h3m1 0h1m1 0h4m3 0h2m2 0h1m1 0h1m6 0h1m-29 1h1m1 0h3m1 0h1m3 0h2m1 0h1m1 0h5m1 0h1m1 0h2m1 0h3m-29 1h1m5 0h1m2 0h1m5 0h1m2 0h2m2 0h2m1 0h2m1 0h1m-29 1h7m1 0h1m2 0h4m3 0h3m2 0h2"/></svg></div>
+        <p class="pj-at">Join at</p>
+        <p class="pj-url">chirag-arora<br/>.onrender.com</p>
+        <p class="pj-tag">#AboutChirag</p>
+      </aside>
+      <div class="poll-main">
+        <header class="poll-head"><span class="poll-live"><i></i> Active poll</span><h3>Describe Chirag in one word</h3><span class="poll-count" id="pollCount">0</span></header>
+        <div class="cloud" id="cloudYou" data-cloud="you"></div>
+        <form class="poll-form" id="pollForm" autocomplete="off">
+          <input id="pollInput" maxlength="18" placeholder="Type one word…" aria-label="Your word" />
+          <button class="btn btn-primary btn-sm" type="submit">Send</button>
+        </form>
+        <p class="poll-note" id="noteYou">Starter words come from how Chirag works. Yours is saved on this device.</p>
       </div>
-    </div>
-    <div class="otc-card otc-wide reveal">
-      <span class="otc-emoji">🧪</span>
-      <h3>Entrepreneur brain, always on</h3>
-      <p>I keep coming back to digital business models, app development, content monetisation and platform strategy. I'm at my best early, when the work is unstructured and nobody has written a playbook yet.</p>
-    </div>
+    </article>
+
+    <article class="poll reveal"><header class="poll-head"><h3>What does he bring to a team?</h3></header><div class="cloud" data-cloud="bring"></div><p class="poll-note">Hover a word.</p></article>
+    <article class="poll reveal"><header class="poll-head"><h3>Numbers he's moved</h3></header><div class="cloud" data-cloud="numbers"></div><p class="poll-note">Hover a word.</p></article>
+    <article class="poll reveal"><header class="poll-head"><h3>Where the journey's been</h3></header><div class="cloud" data-cloud="places"></div><p class="poll-note">Hover a word.</p></article>
+    <article class="poll reveal"><header class="poll-head"><h3>What he builds with</h3></header><div class="cloud" data-cloud="tools"></div><p class="poll-note">Hover a word.</p></article>
+    <article class="poll reveal"><header class="poll-head"><h3>Off the clock</h3></header><div class="cloud" data-cloud="life"></div><p class="poll-note">Hover a word.</p></article>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
-<section class="contact section" id="contact">
-  <p class="kicker reveal" data-dev="npm run collaborate">Contact</p>
+<!-- ============ 05 THE INTERVIEW ============ -->
+<section class="proof spread" id="proof">
+  <header class="ch-head reveal">
+    <span class="ch-no">05</span>
+    <div class="ch-text">
+      <p class="ch-kicker" data-dev="grep -r &quot;evidence&quot; ./chirag">The interview</p>
+      <h2 class="ch-title" data-dev="hire<span class='acc'>(</span>need<span class='acc'>)</span> → proof">Skills, with <em>receipts.</em></h2>
+      <p class="ch-dek">Pick what your team is hiring for. The answer comes with evidence.</p>
+    </div>
+  </header>
+  <div class="interview">
+    <div class="iv-q reveal"><span class="iv-label">Q.</span><div class="needs" id="needs"></div></div>
+    <div class="iv-a"><span class="iv-label">A.</span><div class="evidence" id="evidence" aria-live="polite"></div></div>
+  </div>
+  <div class="toolbox reveal">
+    <h4 class="tb-head">Index of skills</h4>
+    <div class="tb-col"><h5>AI &amp; emerging tech</h5><p>AI fluency · prompt engineering · AI-assisted development (Claude Code) · applied generative AI · AI content across video/image/audio · UI/UX design &amp; prototyping · rapid MVP development</p></div>
+    <div class="tb-col"><h5>Business &amp; strategy</h5><p>Business analysis · data analysis · strategy · consulting · product management · digital marketing &amp; paid acquisition · stakeholder management (to C-suite) · measurement frameworks · process implementation · executive reporting</p></div>
+    <div class="tb-col"><h5>Technical</h5><p>SQL · Python · JavaScript / TypeScript · Chrome Extensions (MV3) · Express / Node · Advanced Excel · Salesforce · FinancialForce · Google Apps Script · dashboards · Google Ads &amp; Analytics</p></div>
+  </div>
+</section>
+
+<!-- ============ 06 OFF THE CLOCK ============ -->
+<section class="otc spread" id="otc">
+  <header class="ch-head reveal">
+    <span class="ch-no">06</span>
+    <div class="ch-text">
+      <p class="ch-kicker" data-dev="cat ~/hobbies.txt">Lifestyle</p>
+      <h2 class="ch-title" data-dev="while<span class='acc'>(</span>!working<span class='acc'>)</span> { }">Off the <em>clock.</em></h2>
+      <p class="ch-dek">Everything on these pages does something. Poke it.</p>
+    </div>
+  </header>
+  <div class="otc-grid">
+    <button class="otc-card otc-car reveal" id="mazda"><span class="otc-emoji">🚗</span><span class="otc-kick">Garage</span><h3>Small car, big opinions</h3><p>He drives a Mazda 2, and it's the car in the game.</p><span class="otc-cta">Tap to rev</span><span class="vroom" aria-hidden="true">VROOM</span></button>
+    <button class="otc-card otc-gym reveal" id="gym"><span class="otc-emoji">💪</span><span class="otc-kick">Fitness</span><h3>Do a set with me</h3><p>The gym keeps the brain in shape.</p><span class="otc-cta">Reps: <b id="reps">0</b>/10</span></button>
+    <button class="otc-card otc-music reveal" id="music"><span class="otc-emoji">🎶</span><span class="otc-kick">On repeat</span><h3>Punjabi music, loud</h3><p>Recently caught Karan Aujla live, and it was worth every second.</p><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="otc-cta">Tap to vibe</span></button>
+    <article class="otc-card otc-content reveal"><span class="otc-kick">On the feed</span><h3>POV: international student in Australia</h3><p>He makes self-aware, culturally specific POV videos about student life here. Occasionally painful, always real.</p></article>
+    <article class="otc-card otc-brain reveal"><span class="otc-kick">Always on</span><h3>The entrepreneur brain</h3><p>Digital business models, app ideas, content monetisation and platform strategy. At his best early, before anyone has written the playbook.</p></article>
+  </div>
+</section>
+
+<!-- ============ 07 LETTERS / BACK COVER ============ -->
+<section class="contact back" id="contact">
+  <p class="ch-kicker reveal" data-dev="npm run collaborate">07 · Letters to the editor</p>
   <h2 class="contact-big reveal" data-dev="got_a_messy_problem<span class='acc'>?</span>">Got a messy problem with <em>no playbook?</em></h2>
-  <p class="contact-sub reveal">Those are my favourite kind. Internships, grad roles, side projects, or just a coffee in Sydney.</p>
+  <p class="contact-sub reveal">Those are my favourite kind. Internships, grad roles in consulting, strategy, product and AI, side projects, or a coffee in Sydney.</p>
   <div class="contact-ctas reveal">
-    <button class="btn btn-primary btn-lg" id="copyEmail" data-email="chiragarora0999@gmail.com">
-      <span class="ce-text">chiragarora0999@gmail.com</span> <span class="ce-icon">⧉</span>
-    </button>
+    <button class="btn btn-primary btn-lg" id="copyEmail" data-email="chiragarora0999@gmail.com"><span class="ce-text">chiragarora0999@gmail.com</span> <span class="ce-icon">⧉</span></button>
     <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/chirag-arora-034a22123/" target="_blank" rel="noopener">LinkedIn ↗</a>
     <a class="btn btn-ghost btn-lg" href="mailto:chiragarora0999@gmail.com">Email me ✉</a>
   </div>
@@ -443,10 +386,9 @@
 
 </main>
 
-<footer class="footer">
-  <span>© <span id="yr"></span> Chirag Arora · Sydney</span>
-  <span class="foot-mid">Built with Claude Code, naturally. Secrets found: <b id="footSecrets">0</b>/8</span>
-  <span class="foot-hint">Try <kbd>/</kbd> · or ↑↑↓↓←→←→BA</span>
+<footer class="footer colophon">
+  <span><b>Colophon.</b> Set in Instrument Serif, Space Grotesk &amp; JetBrains Mono. Built with Claude Code. Printed on the internet, Sydney, © <span id="yr"></span>.</span>
+  <span>Secrets found: <b id="footSecrets">0</b>/8 · try <kbd>/</kbd> or ↑↑↓↓←→←→BA</span>
 </footer>
 
 <!-- ============ TERMINAL ============ -->
@@ -464,9 +406,9 @@
 <div class="toasts" id="toasts" aria-live="polite"></div>
 <canvas id="confetti" aria-hidden="true"></canvas>
 
-<script src="app.js?v=6"></script>
-<script src="game.js?v=6"></script>
-<script src="cloud.js?v=6"></script>
-<script src="work.js?v=6"></script>
+<script src="app.js?v=8"></script>
+<script src="game.js?v=8"></script>
+<script src="cloud.js?v=8"></script>
+<script src="work.js?v=8"></script>
 </body>
 </html>

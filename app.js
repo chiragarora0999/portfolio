@@ -124,7 +124,7 @@
     const dur = 1400, t0 = performance.now();
     const step = t => {
       const p = Math.min(1, (t - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
-      el.textContent = pre + v + suf;
+      el.textContent = pre + v.toLocaleString('en-US') + suf;
       if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -408,6 +408,20 @@ Next step: <a href="mailto:chiragarora0999@gmail.com?subject=Let's%20talk">email
     });
     raf = parts.length ? requestAnimationFrame(tick) : 0;
     if (!raf) ctx.clearRect(0, 0, innerWidth, innerHeight);
+  }
+
+  /* ================= MAGAZINE: contents panel + reading progress ================= */
+  const cBtn = $('#contentsBtn'), cPanel = $('#contentsPanel');
+  if (cBtn && cPanel) {
+    const setC = open => { cPanel.hidden = !open; cBtn.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : ''; };
+    cBtn.addEventListener('click', () => setC(cPanel.hidden));
+    cPanel.addEventListener('click', e => { if (e.target.closest('a')) setC(false); });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !cPanel.hidden) setC(false); });
+  }
+  const prog = $('#progress');
+  if (prog) {
+    const upd = () => { const h = document.documentElement.scrollHeight - innerHeight; prog.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`; };
+    addEventListener('scroll', upd, { passive: true }); upd();
   }
 
   window.CA = Object.assign(window.CA || {}, { unlock, confetti, toast });
