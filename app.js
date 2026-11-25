@@ -12,7 +12,7 @@
     { id: 'term', icon: '💻', name: "I'm in", hint: 'Press / anywhere' },
     { id: 'hire', icon: '🔑', name: 'Root access', hint: 'Try a sudo command in the terminal' },
     { id: 'scan', icon: '🔍', name: 'Product detective', hint: 'Use the Visual Product Finder demo' },
-    { id: 'road', icon: '🏁', name: 'Road tripper', hint: 'Drive to the very last stop' },
+    { id: 'road', icon: '🏁', name: 'Road tripper', hint: 'Reach the finish line in the driving game' },
     { id: 'vroom', icon: '🚗', name: 'Zoom-zoom', hint: 'Something off the clock has an engine' },
     { id: 'reps', icon: '🏋️', name: 'Gym buddy', hint: 'Finish a full set' },
     { id: 'konami', icon: '🕹️', name: 'Old-school', hint: '↑ ↑ ↓ ↓ ← → ← → B A' },
@@ -63,10 +63,9 @@
   function applyMode(m) {
     root.dataset.mode = m;
     devEls.forEach(el => { el.innerHTML = m === 'dev' ? el.dataset.dev : el.dataset.biz; });
-    $('meta[name="theme-color"]').setAttribute('content', m === 'dev' ? '#07090a' : '#f4efe6');
+    $('meta[name="theme-color"]').setAttribute('content', m === 'dev' ? '#0d0e11' : '#f6f5f1');
     localStorage.setItem('ca_mode', m);
     restartRotator();
-    requestAnimationFrame(layoutRoad);
   }
   function setMode(m, x, y) {
     if (m === root.dataset.mode) return;
@@ -133,76 +132,6 @@
   function lightLevels() {
     $$('.xp-levels li').forEach((li, i) => setTimeout(() => li.classList.add('on'), 250 + i * 520));
   }
-
-  /* ================= ROAD TRIP ================= */
-  const roadWrap = $('#roadWrap'), path = $('#roadPath'), car = $('#car');
-  const pathBg = $('#roadPathBg'), pathDone = $('#roadPathDone');
-  const svg = $('#roadSvg');
-  const stops = $$('.stop');
-  let clipRect;
-  (function setupClip() {
-    const ns = 'http://www.w3.org/2000/svg';
-    const defs = document.createElementNS(ns, 'defs');
-    const cp = document.createElementNS(ns, 'clipPath'); cp.id = 'doneClip';
-    clipRect = document.createElementNS(ns, 'rect');
-    clipRect.setAttribute('x', '-50'); clipRect.setAttribute('width', '200'); clipRect.setAttribute('y', '-10'); clipRect.setAttribute('height', '0');
-    cp.appendChild(clipRect); defs.appendChild(cp); svg.prepend(defs);
-    pathDone.setAttribute('clip-path', 'url(#doneClip)');
-  })();
-
-  let W = 1, H = 1, totalLen = 0, pinYs = [];
-  function layoutRoad() {
-    const r = roadWrap.getBoundingClientRect();
-    if (!r.width || !r.height) return;
-    W = r.width; H = r.height;
-    const mobile = innerWidth <= 760;
-    const xPx = mobile ? 26 : W / 2;
-    const xU = (xPx / W) * 100;
-    pinYs = stops.map(s => ((s.offsetTop + 38) / H) * 1000);
-    const pts = [0, ...pinYs, 1000];
-    let d = `M${xU} 0`;
-    for (let i = 1; i < pts.length; i++) {
-      const y0 = pts[i - 1], y1 = pts[i], dy = y1 - y0;
-      const amp = mobile ? 0 : (i % 2 ? 1 : -1) * Math.min(16, 260 / W * 100 * 0.12);
-      d += ` C${xU + amp} ${y0 + dy * 0.35} ${xU + amp} ${y1 - dy * 0.35} ${xU} ${y1}`;
-    }
-    [path, pathBg, pathDone].forEach(p => p.setAttribute('d', d));
-    totalLen = path.getTotalLength();
-    updateCar();
-  }
-  function pointAtY(yU) { // binary search along monotonic path
-    let lo = 0, hi = totalLen;
-    for (let i = 0; i < 22; i++) {
-      const mid = (lo + hi) / 2;
-      if (path.getPointAtLength(mid).y < yU) lo = mid; else hi = mid;
-    }
-    return lo;
-  }
-  let lastCarY = -1;
-  function updateCar() {
-    if (!totalLen) return;
-    const r = roadWrap.getBoundingClientRect();
-    const targetPx = Math.max(0, Math.min(H, innerHeight * 0.55 - r.top));
-    const yU = (targetPx / H) * 1000;
-    const L = pointAtY(yU);
-    const p = path.getPointAtLength(L), q = path.getPointAtLength(Math.min(totalLen, L + 2));
-    const px = (p.x / 100) * W, py = (p.y / 1000) * H;
-    const ang = Math.atan2(((q.y - p.y) / 1000) * H, ((q.x - p.x) / 100) * W) * 180 / Math.PI + 90;
-    car.style.transform = `translate(${px}px, ${py}px) rotate(${(L >= totalLen - 3) ? 180 : ang}deg)`;
-    clipRect.setAttribute('height', String(yU + 10));
-    stops.forEach((s, i) => s.classList.toggle('lit', yU >= pinYs[i] - 4));
-    if (pinYs.length && yU >= pinYs[pinYs.length - 1] - 4 && lastCarY < yU) unlock('road');
-    lastCarY = yU;
-  }
-  let ticking = false;
-  addEventListener('scroll', () => {
-    if (ticking) return; ticking = true;
-    requestAnimationFrame(() => { updateCar(); ticking = false; });
-  }, { passive: true });
-  addEventListener('resize', layoutRoad);
-  addEventListener('load', layoutRoad);
-  document.fonts?.ready.then(layoutRoad);
-  layoutRoad();
 
   /* ================= VPF DEMO ================= */
   let scanning = false;
@@ -408,7 +337,7 @@ Next step: <a href="mailto:chiragarora0999@gmail.com?subject=Let's%20talk">email
       return `sudo: "${a}" isn't something even root can do here. Maybe try <span class="t-acc">sudo hire-chirag</span>?`;
     },
     hire: () => `Permission denied. You need admin rights. <span class="t-dim">(hint: sudo)</span>`,
-    drive: () => { go('#road'); return 'Starting the Mazda… 🚗'; },
+    drive: () => { go('#road'); setTimeout(() => window.CA?.startGame?.(), 700); return 'Starting the Mazda… 🚗'; },
     coffee: () => `☕ Brewing… Happy to grab a real one in Sydney. Type <span class="t-acc">contact</span>.`,
     punjabi: () => `🎶 Volume set to "loud". Recently: Karan Aujla, live.`,
     rm: () => `<span class="t-warn">Nice try.</span> This portfolio is protected by strong opinions and version control.`,
@@ -460,7 +389,7 @@ Next step: <a href="mailto:chiragarora0999@gmail.com?subject=Let's%20talk">email
     if (reduced) return;
     cv.width = innerWidth * devicePixelRatio; cv.height = innerHeight * devicePixelRatio;
     ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-    const cols = root.dataset.mode === 'dev' ? ['#39ff88', '#ffb02e', '#d5ffe2', '#1db954'] : ['#e8501c', '#1d6b5c', '#16130f', '#f2b134', '#c8102e'];
+    const cols = root.dataset.mode === 'dev' ? ['#c8a86b', '#ecebe6', '#7fa89b', '#e6d3a8'] : ['#8c6d3f', '#15161a', '#3f5e57', '#d9c7a3', '#b8b2a5'];
     for (let i = 0; i < n; i++) parts.push({
       x: innerWidth / 2 + (Math.random() - .5) * 200, y: innerHeight * .35,
       vx: (Math.random() - .5) * 16, vy: Math.random() * -14 - 4, g: .4 + Math.random() * .2,
@@ -480,6 +409,8 @@ Next step: <a href="mailto:chiragarora0999@gmail.com?subject=Let's%20talk">email
     raf = parts.length ? requestAnimationFrame(tick) : 0;
     if (!raf) ctx.clearRect(0, 0, innerWidth, innerHeight);
   }
+
+  window.CA = Object.assign(window.CA || {}, { unlock, confetti, toast });
 
   /* restore saved mode last, once everything above is initialised */
   if (localStorage.getItem('ca_mode') === 'dev') applyMode('dev');

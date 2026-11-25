@@ -8,8 +8,8 @@
 <meta property="og:title" content="Chirag Arora — I speak boardroom and I speak code." />
 <meta property="og:description" content="Engineer-turned-business builder. 4.5 years in analytics & consulting, a live AI Chrome extension, and a lot of secrets hidden on this site." />
 <meta property="og:type" content="website" />
-<meta name="theme-color" content="#f4efe6" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2316130f'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23ff6a2b'>CA</text></svg>" />
+<meta name="theme-color" content="#f6f5f1" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2315161a'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23c8a86b'>CA</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -102,73 +102,52 @@
   </div>
 </section>
 
-<!-- ============ ROAD TRIP ============ -->
+<!-- ============ GAME: DRIVE THROUGH MY STORY ============ -->
 <section class="road-section section" id="road">
   <div class="section-head reveal">
-    <p class="kicker" data-dev="git log --oneline --graph">The road so far</p>
-    <h2 class="h2" data-dev="journey<span class='acc'>.map(</span>stop =&gt; growth<span class='acc'>)</span>">Chandigarh → Hyderabad → <em>Sydney</em>.</h2>
-    <p class="muted">Scroll to drive. The little red car is a Mazda 2, obviously.</p>
+    <p class="kicker" data-dev="./drive --through=my-story">The road so far · a game</p>
+    <h2 class="h2" data-dev="journey<span class='acc'>.play()</span>">Drive through my <em>story.</em></h2>
+    <p class="muted">Chandigarh → Hyderabad → Sydney. Climb the hills, grab fuel, and pass each flag to unlock a chapter. Don't flip the car.</p>
   </div>
 
-  <div class="road" id="roadWrap">
-    <svg class="road-svg" id="roadSvg" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true">
-      <path id="roadPathBg" class="road-bg" d="" />
-      <path id="roadPath" class="road-line" d="" />
-      <path id="roadPathDone" class="road-done" d="" />
-    </svg>
-    <div class="car" id="car" aria-hidden="true">
-      <svg viewBox="0 0 40 70" width="30" height="52">
-        <rect x="4" y="4" width="32" height="62" rx="12" fill="#c8102e"/>
-        <rect x="8" y="14" width="24" height="13" rx="4" fill="#1b1b1b" opacity=".85"/>
-        <rect x="8" y="46" width="24" height="10" rx="4" fill="#1b1b1b" opacity=".8"/>
-        <rect x="6" y="2" width="8" height="4" rx="2" fill="#ffe9a8"/>
-        <rect x="26" y="2" width="8" height="4" rx="2" fill="#ffe9a8"/>
-        <rect x="6" y="64" width="8" height="3" rx="1.5" fill="#ff3b3b"/>
-        <rect x="26" y="64" width="8" height="3" rx="1.5" fill="#ff3b3b"/>
-      </svg>
+  <div class="game reveal" id="game" tabindex="0" aria-label="Driving game. Use right arrow to accelerate and left arrow to brake.">
+    <canvas id="gameCanvas"></canvas>
+
+    <div class="g-hud">
+      <div class="g-fuel"><span>Fuel</span><div class="g-fuelbar"><i id="gFuel"></i></div></div>
+      <div class="g-stat"><span>⛀</span><b id="gCoins">0</b></div>
+      <div class="g-stat"><span>Dist</span><b id="gDist">0 m</b></div>
+      <div class="g-stat g-cp"><span>Chapters</span><b id="gCp">0/7</b></div>
     </div>
 
-    <ol class="stops">
-      <li class="stop" data-side="left">
-        <span class="s-when">2018 · Chandigarh, India</span>
-        <h3>Boot sequence</h3>
-        <p>B.E. Computer Science, <b>Artificial Intelligence &amp; Machine Learning</b> at Chandigarh University (2018–2022). Learned how machines learn, and that most real problems aren't purely technical.</p>
-      </li>
-      <li class="stop" data-side="right">
-        <span class="s-when">Jul 2021 · Hyderabad, India</span>
-        <h3>Joins Highradius as an intern</h3>
-        <p>Business Analyst Intern at a global SaaS company. This is where I found out I liked the place where data meets decisions.</p>
-      </li>
-      <li class="stop" data-side="left">
-        <span class="s-when">2021 → 2025 · Highradius</span>
-        <h3>The climb: four roles</h3>
-        <p>Intern → Associate Business Analyst → Senior Analyst → <b>Principal Analyst</b>, on a double-promotion trajectory. Churn models, margin systems, NPS, board decks, and sessions with the CEO, CTO and Consulting SVP.</p>
-        <a class="s-link" href="#work">See the loot ↓</a>
-      </li>
-      <li class="stop" data-side="right">
-        <span class="s-when">Feb 2026 · Sydney, Australia</span>
-        <h3>New city, new chapter</h3>
-        <p><b>UNSW Master of Commerce (Extension)</b>, specialising in Business Analytics and Digital Transformation &amp; Technology Management. Joined startup <b>Well.AI</b> as Business Growth &amp; Strategy Executive.</p>
-      </li>
-      <li class="stop" data-side="left">
-        <span class="s-when">2026 · Solo founder</span>
-        <h3>Ships Visual Product Finder</h3>
-        <p>A live AI Chrome extension. I ran it end to end: product, backend, affiliate system across 3 marketplaces, paid ads and launch content.</p>
-        <a class="s-link" href="#projects">Try the mini-demo ↓</a>
-      </li>
-      <li class="stop" data-side="right">
-        <span class="s-when">Summer Term 2027 · Up next</span>
-        <h3>Sydney Children's Hospital Network</h3>
-        <p>Selected for a UNSW industry placement (CDEV6000) supporting readiness for the <b>Single Digital Patient Record</b>, NSW Health's statewide digital transformation, through workflow analysis and change management.</p>
-      </li>
-      <li class="stop stop-final" data-side="left">
-        <span class="s-when">Next stop · ???</span>
-        <h3>Your team?</h3>
-        <p>Looking for internships &amp; graduate roles in <b>consulting, strategy, product and AI</b>.</p>
-        <a class="btn btn-primary btn-sm" href="#contact">Let's talk →</a>
-      </li>
-    </ol>
+    <div class="g-unlock" id="gUnlock" hidden>
+      <span class="gu-tag">Chapter unlocked</span>
+      <span class="gu-when" id="guWhen"></span>
+      <h3 id="guTitle"></h3>
+      <p id="guText"></p>
+    </div>
+
+    <div class="g-msg" id="gMsg" hidden></div>
+
+    <div class="g-start" id="gStart">
+      <p class="gs-kicker">Mini-game · ~1 minute</p>
+      <h3>Pick your ride</h3>
+      <div class="gs-rides">
+        <button class="ride active" data-ride="car"><span class="ride-ic">🚗</span><b>Mazda 2</b><small>Stable, the daily driver</small></button>
+        <button class="ride" data-ride="bike"><span class="ride-ic">🏍️</span><b>Dirt bike</b><small>Lighter and flippier</small></button>
+      </div>
+      <button class="btn btn-primary" id="gGo">Start driving →</button>
+      <p class="gs-keys"><kbd>→</kbd> / <kbd>D</kbd> gas · <kbd>←</kbd> / <kbd>A</kbd> brake · in the air, gas tilts back and brake tilts forward</p>
+      <button class="gs-skip" id="gSkip">Not a gamer? Unlock all chapters ↓</button>
+    </div>
+
+    <div class="g-pedals">
+      <button class="pedal" id="pBrake" aria-label="Brake">BRAKE</button>
+      <button class="pedal pedal-gas" id="pGas" aria-label="Gas">GAS</button>
+    </div>
   </div>
+
+  <div class="journal" id="journal"></div>
 </section>
 
 <!-- ============ HIGHRADIUS / WORK ============ -->
@@ -466,5 +445,6 @@
 <canvas id="confetti" aria-hidden="true"></canvas>
 
 <script src="app.js"></script>
+<script src="game.js"></script>
 </body>
 </html>
