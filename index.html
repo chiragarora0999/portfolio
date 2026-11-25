@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=4" />
+<link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
 
@@ -323,51 +323,36 @@
     </div>
   </div>
 
-  <!-- Other projects -->
-  <div class="filters reveal" role="tablist">
-    <button class="chip active" data-filter="all">All</button>
-    <button class="chip" data-filter="prototype">Prototypes</button>
-    <button class="chip" data-filter="concept">Concepts</button>
-    <button class="chip" data-filter="experiment">Experiments</button>
-    <button class="chip" data-filter="strategy">Strategy</button>
+  <!-- Work index: case-study wall -->
+  <div class="wi-head reveal">
+    <h3 class="wi-title" data-dev="ls ./case-studies">The work index</h3>
+    <p class="muted">Every tile is a case study. Click one for the context, what I did and the outcome.</p>
   </div>
-  <div class="proj-grid">
-    <article class="proj reveal" data-kind="prototype">
-      <span class="proj-emoji">🫶</span>
-      <span class="pill">Prototype · Well.AI</span>
-      <h3>Wellbeing Buddy</h3>
-      <p>Designed the user experience for a wellbeing app and built a working prototype with AI-assisted development.</p>
-      <span class="proj-tags">UI/UX · Claude Code · Rapid MVP</span>
-    </article>
-    <article class="proj reveal" data-kind="prototype">
-      <span class="proj-emoji">🍛</span>
-      <span class="pill">Prototype</span>
-      <h3>Nutrient tracker for desi kitchens</h3>
-      <p>A React prototype for a gap in the market: nutrition tracking for <b>South Asian home-cooked food</b>. Your dal tadka deserves accurate macros too.</p>
-      <span class="proj-tags">React · Market-gap thinking</span>
-    </article>
-    <article class="proj reveal" data-kind="concept">
-      <span class="proj-emoji">🏅</span>
-      <span class="pill">Concept · Solo founder</span>
-      <h3>RankUp</h3>
-      <p>A verified athletic portfolio platform for amateur sport, so everyday athletes get a credible, verified profile of how they perform.</p>
-      <span class="proj-tags">Platform strategy · Product</span>
-    </article>
-    <article class="proj reveal" data-kind="experiment">
-      <span class="proj-emoji">🤖</span>
-      <span class="pill">Experiment</span>
-      <h3>AI content channels</h3>
-      <p>AI-generated video channels, including car-to-robot transformation Shorts and kids' animated Shorts, made with generative tools.</p>
-      <span class="proj-tags">ElevenLabs · Google Flow · Viblo</span>
-    </article>
-    <article class="proj reveal" data-kind="strategy">
-      <span class="proj-emoji">🏟️</span>
-      <span class="pill">Case competition</span>
-      <h3>Swysh · 180DC × Altman Solon</h3>
-      <p>A 12-slide strategy deck for an Australian sports fan-engagement platform: a two-engine subscription model, tiered pricing, loyalty mechanics and a phased 5-year roadmap.</p>
-      <span class="proj-tags">Strategy · Unit economics · Social impact</span>
-    </article>
+  <div class="wi-filters reveal" role="tablist" aria-label="Filter case studies">
+    <button class="wi-pill active" data-f="all">All</button>
+    <button class="wi-pill" data-f="highradius">Highradius</button>
+    <button class="wi-pill" data-f="product">Products</button>
+    <button class="wi-pill" data-f="strategy">Strategy</button>
+    <button class="wi-pill" data-f="experiment">Experiments</button>
   </div>
+  <div class="wi-grid" id="workIndex"></div>
+
+  <dialog class="case" id="caseModal" aria-labelledby="caseTitle">
+    <button class="case-x" id="caseClose" aria-label="Close">✕</button>
+    <div class="case-cover" id="caseCover"></div>
+    <div class="case-body">
+      <p class="case-meta" id="caseMeta"></p>
+      <h3 id="caseTitle"></h3>
+      <p class="case-hook" id="caseHook"></p>
+      <div class="case-cols">
+        <section><h4>Context</h4><p id="caseCtx"></p></section>
+        <section><h4>What I did</h4><ul id="caseDid"></ul></section>
+        <section><h4>Outcome</h4><p id="caseOut"></p></section>
+      </div>
+      <div class="case-links" id="caseLinks"></div>
+      <div class="case-nav"><button class="btn btn-ghost btn-sm" id="casePrev">← Previous</button><button class="btn btn-ghost btn-sm" id="caseNext">Next →</button></div>
+    </div>
+  </dialog>
 </section>
 
 <!-- ============ PROOF FINDER ============ -->
@@ -479,8 +464,9 @@
 <div class="toasts" id="toasts" aria-live="polite"></div>
 <canvas id="confetti" aria-hidden="true"></canvas>
 
-<script src="app.js?v=4"></script>
-<script src="game.js?v=4"></script>
-<script src="cloud.js?v=4"></script>
+<script src="app.js?v=5"></script>
+<script src="game.js?v=5"></script>
+<script src="cloud.js?v=5"></script>
+<script src="work.js?v=5"></script>
 </body>
 </html>
