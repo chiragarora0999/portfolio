@@ -50,16 +50,17 @@
   })).observe(root, { attributes: true, attributeFilter: ['data-mode'] });
 
   // cover intro choreography
-  requestAnimationFrame(() => setTimeout(() => root.classList.add('cover-in'), 60));
+  const heroEl = $('#hero');
+  new IntersectionObserver(([en], o) => { if (en.isIntersecting) { root.classList.add('cover-in'); heroEl.querySelector('.cv-title')?.querySelectorAll('.cv-the, .cv-l1, .cv-l2').forEach(x => x.classList.add('split-in')); o.disconnect(); } }, { threshold: 0.35 }).observe(heroEl);
 
   /* ---------------- scroll-linked parallax ---------------- */
   const coverTitle = $('.cv-title'), sticker = $('.sticker svg');
   let ticking = false;
   function onScroll() {
-    const vh = innerHeight, y = scrollY;
-    if (coverTitle && y < vh * 1.2) {
-      coverTitle.style.translate = `0 ${y * 0.22}px`;
-      coverTitle.style.opacity = String(Math.max(0.15, 1 - y / (vh * 1.1)));
+    const vh = innerHeight, y = scrollY - (heroEl ? heroEl.offsetTop : 0);
+    if (coverTitle && y > -vh && y < vh * 1.2) {
+      coverTitle.style.translate = `0 ${Math.max(0, y) * 0.22}px`;
+      coverTitle.style.opacity = String(Math.max(0.15, 1 - Math.max(0, y) / (vh * 1.1)));
     }
     if (sticker) sticker.style.rotate = `${y * 0.25}deg`;
     $$('.ch-no').forEach(n => {
@@ -88,7 +89,7 @@
 
   /* ---------------- page-turn transition between chapters ---------------- */
   const NAMES = {
-    '#top': ['00', 'Cover'], '#about': ['—', 'Contents'], '#road': ['01', 'The drive'], '#work': ['02', 'By the numbers'],
+    '#top': ['00', 'Cover'], '#hero': ['00', 'Cover'], '#about': ['—', 'Contents'], '#road': ['01', 'The drive'], '#work': ['02', 'By the numbers'],
     '#projects': ['03', 'The work'], '#clouds': ['04', 'In a few words'], '#proof': ['05', 'The interview'],
     '#otc': ['06', 'Off the clock'], '#contact': ['07', 'Letters'],
   };

@@ -172,6 +172,8 @@
   $('#caseNext').addEventListener('click', () => step(1));
   dlg.addEventListener('keydown', e => { if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
 
+  window.CA = Object.assign(window.CA || {}, { work: { CASES, cover, open } });
+
   // deep links: /#case-churn opens that case
   const m = location.hash.match(/^#case-(.+)$/);
   if (m) { const i = CASES.findIndex(c => c.id === m[1]); if (i >= 0) setTimeout(() => { $('#projects').scrollIntoView(); open(i); }, 400); }

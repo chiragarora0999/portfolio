@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=9" />
+<link rel="stylesheet" href="style.css?v=13" />
 </head>
 <body>
 <div class="progress" id="progress" aria-hidden="true"></div>
@@ -37,7 +37,7 @@
 <nav class="contents-panel" id="contentsPanel" hidden aria-label="Contents">
   <p class="cp-kicker">In this issue</p>
   <ol>
-    <li><a href="#top"><span>00</span>Cover</a></li>
+    <li><a href="#hero"><span>00</span>Cover</a></li>
     <li><a href="#about"><span>—</span>Contents &amp; editor's letter</a></li>
     <li><a href="#road"><span>01</span>The drive <em>a playable feature</em></a></li>
     <li><a href="#work"><span>02</span>By the numbers <em>the Highradius years</em></a></li>
@@ -50,6 +50,25 @@
 </nav>
 
 <main id="top">
+
+<!-- ============ OPENING SCENE: THE CARD TUNNEL ============ -->
+<section class="tunnel" id="tunnel" aria-label="Opening gallery: a tunnel of cards from Chirag's work">
+  <div class="t-stage">
+    <div class="t-cam"><div class="t-world"></div></div>
+    <div class="t-floor" aria-hidden="true"></div>
+    <div class="t-ui">
+      <p class="t-brand">Chirag Arora</p>
+      <a class="t-index" href="#about">Index <i></i> Skip to the issue</a>
+      <div class="t-caps">
+        <p class="t-count"><b>01</b> / 03</p>
+        <div class="t-cap on"><h2>Every card is a piece of <em>my story.</em></h2><p>Analytics, strategy and AI in one curved gallery. Scroll to walk through it.</p></div>
+        <div class="t-cap"><h2>14 case studies. <em>4.5 years.</em> One live AI product.</h2><p>Click any card on the walls to open it.</p></div>
+        <div class="t-cap"><h2>Now, the <em>full issue.</em></h2><p>Keep scrolling. The magazine starts below.</p></div>
+      </div>
+      <p class="t-hint">Scroll <span>↓</span></p>
+    </div>
+  </div>
+</section>
 
 <!-- ============ COVER ============ -->
 <section class="cover" id="hero">
@@ -406,10 +425,11 @@
 <div class="toasts" id="toasts" aria-live="polite"></div>
 <canvas id="confetti" aria-hidden="true"></canvas>
 
-<script src="app.js?v=9"></script>
-<script src="game.js?v=9"></script>
-<script src="cloud.js?v=9"></script>
-<script src="work.js?v=9"></script>
-<script src="motion.js?v=9"></script>
+<script src="app.js?v=13"></script>
+<script src="game.js?v=13"></script>
+<script src="cloud.js?v=13"></script>
+<script src="work.js?v=13"></script>
+<script src="motion.js?v=13"></script>
+<script src="tunnel.js?v=13"></script>
 </body>
 </html>
